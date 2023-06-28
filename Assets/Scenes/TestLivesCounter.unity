@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 418625705}
   - component: {fileID: 418625708}
   - component: {fileID: 418625707}
-  - component: {fileID: 418625706}
+  - component: {fileID: 418625709}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -230,18 +230,6 @@ RectTransform:
   m_AnchoredPosition: {x: -312.67, y: 199.33}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &418625706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418625704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c41e3145fd173444584529af02b9be90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &418625707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +327,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418625704}
   m_CullTransparentMesh: 1
+--- !u!114 &418625709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418625704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41e3145fd173444584529af02b9be90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesCounter: {fileID: 1978564027}
 --- !u!1 &594013607
 GameObject:
   m_ObjectHideFlags: 0
