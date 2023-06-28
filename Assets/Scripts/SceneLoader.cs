@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private string TitleSceneString = "TitleScreen";
-    [SerializeField] private string StartingSceneString = "SampleScene";
+    [SerializeField] private string StartingSceneString = "Main";
     [SerializeField] private string GameOverScreenString = "GameOverScreen";
 
     private void OnTriggerEnter2D(Collider2D collision)
