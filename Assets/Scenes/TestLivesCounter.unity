@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 1978564027}
   - component: {fileID: 1978564032}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Lives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
