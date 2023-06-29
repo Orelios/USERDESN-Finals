@@ -1,19 +1,30 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Tilemap groundTilemap;
+    private Tilemap groundTilemap;
     [SerializeField] private float movementSpeed;
     private Vector3 direction;
     private List<Vector3> targets = new List<Vector3>();
     private PlayerControls controls;
     private bool isMoving;
+    private PlayerCoordinates coordinates;
+    public PlayerCoordinates Coordinates { get => coordinates; }
+
+    //Event for when the player is about to move to the target
+    public static event Action<Vector2Int, Direction> onAboutToMoveToTarget;   //Things that happen when the player is about to move to a square should be subscribed to this event. (i.e. object being pushed)
+    //Passes a Vector2Int to all functions subscribed to it for the player's target position they are going to move to
+
+    private bool announcedAboutToMoveToTarget = false;
 
     private void Awake()
     {
         controls = new PlayerControls();
+        coordinates = GetComponent<PlayerCoordinates>();
+        groundTilemap = coordinates.GroundTilemap;
     }
 
     private void Start()
@@ -29,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
             //...remove that target.
             targets.RemoveAt(0);
             isMoving = false;
+
+            announcedAboutToMoveToTarget = false;   //Reset bool value
+            coordinates.SetCurrentPositionOnGrid(); //Update the player's current position value
+
             //If the player is still pressing down on the same input...
             if(direction == (Vector3)controls.Actions.Move.ReadValue<Vector2>() && direction != Vector3.zero)
             {
@@ -46,6 +61,17 @@ public class PlayerMovement : MonoBehaviour
         //If there is (still) a target to move to...
         if(targets.Count != 0) 
         {
+            //...set the player's facing direction to where the target is...
+            coordinates.FaceToTarget(targets[0]);
+
+            //...announce about to move to target...
+            if(!announcedAboutToMoveToTarget)
+            {
+                //Pass in the specific coordinate the player will move to and the direction they are facing.
+                onAboutToMoveToTarget?.Invoke((Vector2Int)groundTilemap.WorldToCell(targets[0]), coordinates.DirectionFacing);   
+                announcedAboutToMoveToTarget = true;
+            }
+
             //...move to target.
             transform.position = Vector3.MoveTowards(transform.position, targets[0], movementSpeed * Time.deltaTime);
         }
@@ -62,10 +88,14 @@ public class PlayerMovement : MonoBehaviour
             direction = currentInput;
             //...add the next move to the buffer.
             targetTile = groundTilemap.WorldToCell(targets[0] + currentInput);
-            if(targets.Count > 1)
-                targets[1] = groundTilemap.GetCellCenterLocal(targetTile);
-            else
-                targets.Add(groundTilemap.GetCellCenterLocal(targetTile));
+            if(IsTargetTileFree(targetTile))
+            {
+                if(targets.Count > 1)
+                    targets[1] = groundTilemap.GetCellCenterLocal(targetTile);
+                else
+                    targets.Add(groundTilemap.GetCellCenterLocal(targetTile));
+            }
+            
         }
         //If the player has reached the target or is still moving in the same direction...
         else 
