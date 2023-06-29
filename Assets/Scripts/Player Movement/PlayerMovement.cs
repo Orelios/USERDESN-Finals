@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,10 +11,14 @@ public class PlayerMovement : MonoBehaviour
     private List<Vector3> targets = new List<Vector3>();
     private PlayerControls controls;
     private bool isMoving;
+    private PlayerCoordinates coordinates;
+    public PlayerCoordinates Coordinates { get => coordinates; }
 
     private void Awake()
     {
         controls = new PlayerControls();
+        coordinates = GetComponent<PlayerCoordinates>();
+        groundTilemap = coordinates.GroundTilemap;
     }
 
     private void Start()
@@ -29,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
             //...remove that target.
             targets.RemoveAt(0);
             isMoving = false;
+
+            coordinates.SetCurrentPositionOnGrid(); //Update the player's current position value
+
             //If the player is still pressing down on the same input...
             if(direction == (Vector3)controls.Actions.Move.ReadValue<Vector2>() && direction != Vector3.zero)
             {
@@ -46,6 +54,9 @@ public class PlayerMovement : MonoBehaviour
         //If there is (still) a target to move to...
         if(targets.Count != 0) 
         {
+            //...set the player's facing direction to where the target is and...
+            coordinates.FaceToTarget(targets[0]);
+
             //...move to target.
             transform.position = Vector3.MoveTowards(transform.position, targets[0], movementSpeed * Time.deltaTime);
         }

@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 public class Coordinates : MonoBehaviour
 {
     [SerializeField] private Tilemap groundTilemap;
+    public Tilemap GroundTilemap { get => groundTilemap; }
     [SerializeField] private Vector2Int positionOnGrid;
     public Vector2Int PositionOnGrid { get => positionOnGrid; }
 
