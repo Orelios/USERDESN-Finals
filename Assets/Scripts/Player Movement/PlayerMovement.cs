@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Tilemap groundTilemap;
+    private Tilemap groundTilemap;
     [SerializeField] private float movementSpeed;
     private Vector3 direction;
     private List<Vector3> targets = new List<Vector3>();
@@ -73,10 +73,14 @@ public class PlayerMovement : MonoBehaviour
             direction = currentInput;
             //...add the next move to the buffer.
             targetTile = groundTilemap.WorldToCell(targets[0] + currentInput);
-            if(targets.Count > 1)
-                targets[1] = groundTilemap.GetCellCenterLocal(targetTile);
-            else
-                targets.Add(groundTilemap.GetCellCenterLocal(targetTile));
+            if(IsTargetTileFree(targetTile))
+            {
+                if(targets.Count > 1)
+                    targets[1] = groundTilemap.GetCellCenterLocal(targetTile);
+                else
+                    targets.Add(groundTilemap.GetCellCenterLocal(targetTile));
+            }
+            
         }
         //If the player has reached the target or is still moving in the same direction...
         else 
