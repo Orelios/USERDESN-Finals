@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
     private PlayerCoordinates coordinates;
     public PlayerCoordinates Coordinates { get => coordinates; }
 
+    //Event for when the player is about to move to the target
+    public static event Action<Vector2Int, Direction> onAboutToMoveToTarget;   //Things that happen when the player is about to move to a square should be subscribed to this event. (i.e. object being pushed)
+    //Passes a Vector2Int to all functions subscribed to it for the player's target position they are going to move to
+
+    private bool announcedAboutToMoveToTarget = false;
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -35,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
             targets.RemoveAt(0);
             isMoving = false;
 
+            announcedAboutToMoveToTarget = false;   //Reset bool value
             coordinates.SetCurrentPositionOnGrid(); //Update the player's current position value
 
             //If the player is still pressing down on the same input...
@@ -54,8 +61,16 @@ public class PlayerMovement : MonoBehaviour
         //If there is (still) a target to move to...
         if(targets.Count != 0) 
         {
-            //...set the player's facing direction to where the target is and...
+            //...set the player's facing direction to where the target is...
             coordinates.FaceToTarget(targets[0]);
+
+            //...announce about to move to target...
+            if(!announcedAboutToMoveToTarget)
+            {
+                //Pass in the specific coordinate the player will move to and the direction they are facing.
+                onAboutToMoveToTarget?.Invoke((Vector2Int)groundTilemap.WorldToCell(targets[0]), coordinates.DirectionFacing);   
+                announcedAboutToMoveToTarget = true;
+            }
 
             //...move to target.
             transform.position = Vector3.MoveTowards(transform.position, targets[0], movementSpeed * Time.deltaTime);
