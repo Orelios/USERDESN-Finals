@@ -7,10 +7,12 @@ public class PushableObject : LevelObject
     private float pushSpeed;
     private Vector3 targetPosition;
     private bool moving;
+    private GroundTilemap groundTilemap;
 
     private void Start()
     {
         pushSpeed = FindObjectOfType<PlayerMovement>().MovementSpeed;
+        groundTilemap = FindObjectOfType<GroundTilemap>();
     }
 
     private void BeMoved(Vector2Int playerMoveTarget, Direction playerFacingDirection)
@@ -29,11 +31,15 @@ public class PushableObject : LevelObject
             //Get the coordinate of the square in that direction.
             Vector2Int coordinate = GetCoordinateInDirection(playerFacingDirection);
 
-            //Set the coordinate as the move target.
-            targetPosition = coordinates.GroundTilemap.GetCellCenterWorld((Vector3Int)coordinate);
+            //If the target coordinate is within the grid...
+            if(groundTilemap.IsTargetTileFree((Vector3Int)coordinate))
+            {
+                //...set the coordinate as the move target...
+                targetPosition = coordinates.GroundTilemap.GetCellCenterWorld((Vector3Int)coordinate);
 
-            //Start moving.
-            moving = true;
+                //...start moving.
+                moving = true;
+            }
         }
     }
 

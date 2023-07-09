@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Tilemap groundTilemap;
+    private GroundTilemap groundTilemap;
     [SerializeField] private float movementSpeed;
     public float MovementSpeed { get => movementSpeed; }
     private Vector3 direction;
@@ -20,10 +20,6 @@ public class PlayerMovement : MonoBehaviour
     //Passes a Vector2Int to all functions subscribed to it for the player's target position they are going to move to
 
     private bool announcedAboutToMoveToTarget = false;
-
-    //Obstacles
-    private List<Vector2Int> obstacleCoordinates = new List<Vector2Int>();
-    public List<Vector2Int> ObstacleCoordinates { get => obstacleCoordinates; }
     
     private void Awake()
     {
@@ -33,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        groundTilemap = coordinates.GroundTilemap;
+        groundTilemap = FindObjectOfType<GroundTilemap>();
         controls.Actions.Move.started += _ => StartMoving();
     }
 
@@ -73,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             if(!announcedAboutToMoveToTarget)
             {
                 //Pass in the specific coordinate the player will move to and the direction they are facing.
-                onAboutToMoveToTarget?.Invoke((Vector2Int)groundTilemap.WorldToCell(targets[0]), coordinates.DirectionFacing);   
+                onAboutToMoveToTarget?.Invoke((Vector2Int)groundTilemap.Tilemap.WorldToCell(targets[0]), coordinates.DirectionFacing);   
                 announcedAboutToMoveToTarget = true;
             }
 
@@ -92,13 +88,13 @@ public class PlayerMovement : MonoBehaviour
         {
             direction = currentInput;
             //...add the next move to the buffer.
-            targetTile = groundTilemap.WorldToCell(targets[0] + currentInput);
-            if(IsTargetTileFree(targetTile))
+            targetTile = groundTilemap.Tilemap.WorldToCell(targets[0] + currentInput);
+            if(groundTilemap.IsTargetTileFree(targetTile))
             {
                 if(targets.Count > 1)
-                    targets[1] = groundTilemap.GetCellCenterLocal(targetTile);
+                    targets[1] = groundTilemap.Tilemap.GetCellCenterLocal(targetTile);
                 else
-                    targets.Add(groundTilemap.GetCellCenterLocal(targetTile));
+                    targets.Add(groundTilemap.Tilemap.GetCellCenterLocal(targetTile));
             }
             
         }
@@ -107,31 +103,18 @@ public class PlayerMovement : MonoBehaviour
         {
             if(isMoving) return;
             direction = currentInput;
-            targetTile = groundTilemap.WorldToCell(transform.position + direction);
+            targetTile = groundTilemap.Tilemap.WorldToCell(transform.position + direction);
 
-            if(IsTargetTileFree(targetTile))
+            if(groundTilemap.IsTargetTileFree(targetTile))
             {
                 //...set the target point
-                targets.Add(groundTilemap.GetCellCenterLocal(targetTile));
+                targets.Add(groundTilemap.Tilemap.GetCellCenterLocal(targetTile));
                 isMoving = true;
             }
         }
     }
 
-    private bool IsTargetTileFree(Vector3Int tilePosition)
-    {
-        //Check if tilePosition has an obstacle
-        foreach(Vector2Int obstacleCoordinate in obstacleCoordinates)
-        {
-            //If there is an obstacle in the way...
-            if(obstacleCoordinate == (Vector2Int)tilePosition)
-            {
-                //...don't let the player move to that space.
-                return false;   
-            }
-        }
-        return (groundTilemap.HasTile(tilePosition));
-    }
+
 
     private bool HasReachedTarget()
     {
