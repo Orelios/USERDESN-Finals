@@ -8,7 +8,7 @@ public class GroundTilemap : MonoBehaviour
     private Tilemap groundTilemap;
     public Tilemap Tilemap { get => groundTilemap; }
     //Obstacles
-    private List<Vector2Int> obstacleCoordinates = new List<Vector2Int>();
+    [SerializeField]private List<Vector2Int> obstacleCoordinates = new List<Vector2Int>();
     public List<Vector2Int> ObstacleCoordinates { get => obstacleCoordinates; }
 
     private void Awake()

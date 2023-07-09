@@ -92,13 +92,39 @@ public class PushableObject : LevelObject
         return coordinate;
     }
 
+    private void CantMoveStopPlayer(Vector2Int targetTile, Direction playerFacingDirection)
+    {
+        if(coordinates == null) return;
+        //If the player intends to move to my space...
+        if(targetTile == coordinates.PositionOnGrid) 
+        {
+            //...and I can make space for the player
+            if(groundTilemap.IsTargetTileFree((Vector3Int)GetCoordinateInDirection(playerFacingDirection)))
+            {
+                //...make sure I'm not an obstacle.
+                groundTilemap.ObstacleCoordinates.Remove(coordinates.PositionOnGrid);
+            }
+            else
+            {
+                //If I'm not already an obstacle...
+                if(!groundTilemap.ObstacleCoordinates.Contains(coordinates.PositionOnGrid))
+                {
+                    //...make me an obstacle.
+                    groundTilemap.ObstacleCoordinates.Add(coordinates.PositionOnGrid);
+                }
+            }
+        }
+    }
+
     private void OnEnable()
     {
+        PlayerMovement.onIntendToMoveToTarget += CantMoveStopPlayer;
         PlayerMovement.onAboutToMoveToTarget += BeMoved;
     }
 
     private void OnDisable()
     {
+        PlayerMovement.onIntendToMoveToTarget -= CantMoveStopPlayer;
         PlayerMovement.onAboutToMoveToTarget -= BeMoved;
     }
 }

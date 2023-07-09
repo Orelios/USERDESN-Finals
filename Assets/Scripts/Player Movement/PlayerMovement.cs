@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerCoordinates coordinates;
     public PlayerCoordinates Coordinates { get => coordinates; }
 
+    //Event for when the player intends to move to a space
+    public static event Action<Vector2Int, Direction> onIntendToMoveToTarget;   //Things that happen before the player is about to move to a square should be subscribed to this event. (i.e. functions that would stop the player from moving to said space)
+
     //Event for when the player is about to move to the target
     public static event Action<Vector2Int, Direction> onAboutToMoveToTarget;   //Things that happen when the player is about to move to a square should be subscribed to this event. (i.e. object being pushed)
     //Passes a Vector2Int to all functions subscribed to it for the player's target position they are going to move to
@@ -30,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         groundTilemap = FindObjectOfType<GroundTilemap>();
+        controls.Actions.Move.started += _ => LookDirection();
         controls.Actions.Move.started += _ => StartMoving();
     }
 
@@ -78,10 +82,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void LookDirection()
+    {
+        Vector3 currentInput = (Vector3)controls.Actions.Move.ReadValue<Vector2>();
+        coordinates.FaceToTarget(transform.position + currentInput);
+    }
+
     private void StartMoving()
     {
         Vector3 currentInput = (Vector3)controls.Actions.Move.ReadValue<Vector2>();
         Vector3Int targetTile;
+
+        onIntendToMoveToTarget?.Invoke((Vector2Int)groundTilemap.Tilemap.WorldToCell(transform.position + currentInput), coordinates.DirectionFacing);
 
         //If the player has not yet reached the target and input is not the same as the previous input...
         if(targets.Count != 0 && !HasReachedTarget() && direction != currentInput) 
