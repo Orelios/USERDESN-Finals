@@ -20,6 +20,7 @@ public class PushableObject : LevelObject
         //If the player is moving to my space...
         if(playerMoveTarget == coordinates.PositionOnGrid) 
         {
+            StopAllCoroutines();
             //...be pushed to the direction the player is facing.
 
             //Get the direction the player is facing.
@@ -52,9 +53,16 @@ public class PushableObject : LevelObject
                 if(transform.position == targetPosition)
                 {
                     moving = false; //...stop moving.
+                    StartCoroutine(CallPerformAction()); //Call Perform Action event.
                 }
             }
         }
+    }
+
+    private IEnumerator CallPerformAction()
+    {
+        yield return new WaitForSeconds(0.1f);  //Delay to make sure that the player is no longer moving the object.
+        ActionsManager.onPerformAction?.Invoke();
     }
 
     private Vector2Int GetCoordinateInDirection(Direction direction)
