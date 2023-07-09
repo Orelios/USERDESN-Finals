@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Tilemap groundTilemap;
     [SerializeField] private float movementSpeed;
+    public float MovementSpeed { get => movementSpeed; }
     private Vector3 direction;
     private List<Vector3> targets = new List<Vector3>();
     private PlayerControls controls;
