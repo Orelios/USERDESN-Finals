@@ -12,9 +12,9 @@ public class LevelObject : MonoBehaviour
 
     //Sample object functionality
     //Feel free to use this as a base for object actions
-    private void DoLevelObjectAction(Vector2Int playerMoveTarget, Direction playerFacingDirection)
+    private void DoLevelObjectAction(Vector2Int playerMoveTarget, Direction playerFacingDirection, bool isPlayer)
     {
-        if(coordinates == null) return;
+        if(coordinates == null || !isPlayer) return;
         Direction playerComingFrom = DeterminePlayerPositionRelativeToObject(playerFacingDirection);
         //If the player is moving to my space...
         if(playerMoveTarget == coordinates.PositionOnGrid) 
@@ -24,7 +24,7 @@ public class LevelObject : MonoBehaviour
         }
     }
 
-    private Direction DeterminePlayerPositionRelativeToObject(Direction playerFacingDirection)
+    protected Direction DeterminePlayerPositionRelativeToObject(Direction playerFacingDirection)
     {
         switch(playerFacingDirection)
         {

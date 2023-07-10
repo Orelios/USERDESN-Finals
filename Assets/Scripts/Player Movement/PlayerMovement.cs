@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using System;
 using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Tilemap groundTilemap;
+    private GroundTilemap groundTilemap;
     [SerializeField] private float movementSpeed;
+    public float MovementSpeed { get => movementSpeed; }
     private Vector3 direction;
     private List<Vector3> targets = new List<Vector3>();
     private PlayerControls controls;
@@ -14,15 +13,16 @@ public class PlayerMovement : MonoBehaviour
     private PlayerCoordinates coordinates;
     public PlayerCoordinates Coordinates { get => coordinates; }
 
+    //Event for when the player intends to move to a space
+    public delegate void OnIntendToMoveToTarget(Vector2Int targetCoordinate, Direction direction, bool isPlayer);
+    public static OnIntendToMoveToTarget onIntendToMoveToTarget;   //Things that happen before the player is about to move to a square should be subscribed to this event. (i.e. functions that would stop the player from moving to said space). You can also call this from objects intending to move into the space of other objects.
+
     //Event for when the player is about to move to the target
-    public static event Action<Vector2Int, Direction> onAboutToMoveToTarget;   //Things that happen when the player is about to move to a square should be subscribed to this event. (i.e. object being pushed)
+    public delegate void OnAboutToMoveToTarget(Vector2Int targetCoordinate, Direction direction, bool isPlayer);
+    public static OnAboutToMoveToTarget onAboutToMoveToTarget;   //Things that happen when the player is about to move to a square should be subscribed to this event. (i.e. object being pushed)
     //Passes a Vector2Int to all functions subscribed to it for the player's target position they are going to move to
 
     private bool announcedAboutToMoveToTarget = false;
-
-    //Obstacles
-    private List<Vector2Int> obstacleCoordinates = new List<Vector2Int>();
-    public List<Vector2Int> ObstacleCoordinates { get => obstacleCoordinates; }
     
     private void Awake()
     {
@@ -32,7 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        groundTilemap = coordinates.GroundTilemap;
+        groundTilemap = FindObjectOfType<GroundTilemap>();
+        controls.Actions.Move.started += _ => LookDirection();
         controls.Actions.Move.started += _ => StartMoving();
     }
 
@@ -65,14 +66,11 @@ public class PlayerMovement : MonoBehaviour
         //If there is (still) a target to move to...
         if(targets.Count != 0) 
         {
-            //...set the player's facing direction to where the target is...
-            coordinates.FaceToTarget(targets[0]);
-
             //...announce about to move to target...
             if(!announcedAboutToMoveToTarget)
             {
                 //Pass in the specific coordinate the player will move to and the direction they are facing.
-                onAboutToMoveToTarget?.Invoke((Vector2Int)groundTilemap.WorldToCell(targets[0]), coordinates.DirectionFacing);   
+                onAboutToMoveToTarget?.Invoke((Vector2Int)groundTilemap.Tilemap.WorldToCell(targets[0]), coordinates.DirectionFacing, true);   
                 announcedAboutToMoveToTarget = true;
             }
 
@@ -81,23 +79,31 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void LookDirection()
+    {
+        Vector3 currentInput = (Vector3)controls.Actions.Move.ReadValue<Vector2>();
+        coordinates.FaceToTarget(transform.position + currentInput);
+    }
+
     private void StartMoving()
     {
         Vector3 currentInput = (Vector3)controls.Actions.Move.ReadValue<Vector2>();
         Vector3Int targetTile;
+
+        onIntendToMoveToTarget?.Invoke((Vector2Int)groundTilemap.Tilemap.WorldToCell(transform.position + currentInput), coordinates.DirectionFacing, true);
 
         //If the player has not yet reached the target and input is not the same as the previous input...
         if(targets.Count != 0 && !HasReachedTarget() && direction != currentInput) 
         {
             direction = currentInput;
             //...add the next move to the buffer.
-            targetTile = groundTilemap.WorldToCell(targets[0] + currentInput);
-            if(IsTargetTileFree(targetTile))
+            targetTile = groundTilemap.Tilemap.WorldToCell(targets[0] + currentInput);
+            if(groundTilemap.IsTargetTileFree(targetTile))
             {
                 if(targets.Count > 1)
-                    targets[1] = groundTilemap.GetCellCenterLocal(targetTile);
+                    targets[1] = groundTilemap.Tilemap.GetCellCenterLocal(targetTile);
                 else
-                    targets.Add(groundTilemap.GetCellCenterLocal(targetTile));
+                    targets.Add(groundTilemap.Tilemap.GetCellCenterLocal(targetTile));
             }
             
         }
@@ -106,31 +112,18 @@ public class PlayerMovement : MonoBehaviour
         {
             if(isMoving) return;
             direction = currentInput;
-            targetTile = groundTilemap.WorldToCell(transform.position + direction);
+            targetTile = groundTilemap.Tilemap.WorldToCell(transform.position + direction);
 
-            if(IsTargetTileFree(targetTile))
+            if(groundTilemap.IsTargetTileFree(targetTile))
             {
                 //...set the target point
-                targets.Add(groundTilemap.GetCellCenterLocal(targetTile));
+                targets.Add(groundTilemap.Tilemap.GetCellCenterLocal(targetTile));
                 isMoving = true;
             }
         }
     }
 
-    private bool IsTargetTileFree(Vector3Int tilePosition)
-    {
-        //Check if tilePosition has an obstacle
-        foreach(Vector2Int obstacleCoordinate in obstacleCoordinates)
-        {
-            //If there is an obstacle in the way...
-            if(obstacleCoordinate == (Vector2Int)tilePosition)
-            {
-                //...don't let the player move to that space.
-                return false;   
-            }
-        }
-        return (groundTilemap.HasTile(tilePosition));
-    }
+
 
     private bool HasReachedTarget()
     {
