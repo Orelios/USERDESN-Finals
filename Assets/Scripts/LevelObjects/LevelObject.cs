@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LevelObject : MonoBehaviour
 {
-    private Coordinates coordinates;
-    private void Awake()
+    protected Coordinates coordinates;
+    public virtual void Awake()
     {
         coordinates = GetComponent<Coordinates>();
     }
@@ -14,6 +14,7 @@ public class LevelObject : MonoBehaviour
     //Feel free to use this as a base for object actions
     private void DoLevelObjectAction(Vector2Int playerMoveTarget, Direction playerFacingDirection)
     {
+        if(coordinates == null) return;
         Direction playerComingFrom = DeterminePlayerPositionRelativeToObject(playerFacingDirection);
         //If the player is moving to my space...
         if(playerMoveTarget == coordinates.PositionOnGrid) 

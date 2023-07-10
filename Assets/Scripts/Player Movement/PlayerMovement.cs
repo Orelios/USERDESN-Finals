@@ -20,15 +20,19 @@ public class PlayerMovement : MonoBehaviour
 
     private bool announcedAboutToMoveToTarget = false;
 
+    //Obstacles
+    private List<Vector2Int> obstacleCoordinates = new List<Vector2Int>();
+    public List<Vector2Int> ObstacleCoordinates { get => obstacleCoordinates; }
+    
     private void Awake()
     {
         controls = new PlayerControls();
         coordinates = GetComponent<PlayerCoordinates>();
-        groundTilemap = coordinates.GroundTilemap;
     }
 
     private void Start()
     {
+        groundTilemap = coordinates.GroundTilemap;
         controls.Actions.Move.started += _ => StartMoving();
     }
 
@@ -115,12 +119,22 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsTargetTileFree(Vector3Int tilePosition)
     {
-        return (groundTilemap.HasTile(tilePosition) /* && there are no obstacles*/) ? true : false;
+        //Check if tilePosition has an obstacle
+        foreach(Vector2Int obstacleCoordinate in obstacleCoordinates)
+        {
+            //If there is an obstacle in the way...
+            if(obstacleCoordinate == (Vector2Int)tilePosition)
+            {
+                //...don't let the player move to that space.
+                return false;   
+            }
+        }
+        return (groundTilemap.HasTile(tilePosition));
     }
 
     private bool HasReachedTarget()
     {
-        return (Vector3.Distance(transform.position, targets[0]) == 0) ? true : false;
+        return Vector3.Distance(transform.position, targets[0]) == 0;
     }
 
     private void OnEnable()
