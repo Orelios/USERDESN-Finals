@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PushableObject : LevelObject
@@ -8,6 +7,7 @@ public class PushableObject : LevelObject
     private Vector3 targetPosition;
     private bool moving;
     private GroundTilemap groundTilemap;
+    private bool isPlayerPushing;
 
     private void Start()
     {
@@ -15,31 +15,34 @@ public class PushableObject : LevelObject
         groundTilemap = FindObjectOfType<GroundTilemap>();
     }
 
-    private void BeMoved(Vector2Int playerMoveTarget, Direction playerFacingDirection)
+    private void BeMoved(Vector2Int moveTarget, Direction playerFacingDirection, bool isPlayer)
     {
         if(coordinates == null) return;
         
-        //If the player is moving to my space...
-        if(playerMoveTarget == coordinates.PositionOnGrid) 
+        //If the player or an object is moving to my space...
+        if(moveTarget == coordinates.PositionOnGrid) 
         {
+            isPlayerPushing = isPlayer;
             StopAllCoroutines();
-            //...be pushed to the direction the player is facing.
 
-            //Get the direction the player is facing.
-            Direction pushDirection = playerFacingDirection;
+            //...move me to towards the next coordinate in the direction the player is facing
+            Move((Vector3Int)GetCoordinateInDirection(playerFacingDirection), playerFacingDirection);
+        }
+    }
 
-            //Get the coordinate of the square in that direction.
-            Vector2Int coordinate = GetCoordinateInDirection(playerFacingDirection);
+    private void Move(Vector3Int targetCoordinate, Direction direction)
+    {
+        //Tell other objects that I am about to move to the target coordinate
+        PlayerMovement.onAboutToMoveToTarget?.Invoke((Vector2Int)targetCoordinate, direction, false);
 
-            //If the target coordinate is within the grid...
-            if(groundTilemap.IsTargetTileFree((Vector3Int)coordinate))
-            {
-                //...set the coordinate as the move target...
-                targetPosition = coordinates.GroundTilemap.GetCellCenterWorld((Vector3Int)coordinate);
+        //If the target coordinate is within the grid and has no obstacles...
+        if(groundTilemap.IsTargetTileFree(targetCoordinate))
+        {
+            //...set the coordinate as the move target...
+            targetPosition = coordinates.GroundTilemap.GetCellCenterWorld(targetCoordinate);
 
-                //...start moving.
-                moving = true;
-            }
+            //...start moving.
+            moving = true;
         }
     }
 
@@ -59,7 +62,7 @@ public class PushableObject : LevelObject
                 if(transform.position == targetPosition)
                 {
                     moving = false; //...stop moving.
-                    StartCoroutine(CallPerformAction()); //Call Perform Action event.
+                    if(isPlayerPushing) StartCoroutine(CallPerformAction()); //Call Perform Action event.
                 }
             }
         }
@@ -92,13 +95,17 @@ public class PushableObject : LevelObject
         return coordinate;
     }
 
-    private void CantMoveStopPlayer(Vector2Int targetTile, Direction playerFacingDirection)
+    private void CantMoveStopPlayer(Vector2Int targetTile, Direction playerFacingDirection, bool isPlayer)
     {
         if(coordinates == null) return;
-        //If the player intends to move to my space...
+        //If the player or an object intends to move to my space...
         if(targetTile == coordinates.PositionOnGrid) 
         {
-            //...and I can make space for the player
+            //...tell other objects that I intend to move to the target coordinate.
+            PlayerMovement.onIntendToMoveToTarget?.Invoke(GetCoordinateInDirection(playerFacingDirection), playerFacingDirection, false);
+
+            isPlayerPushing = isPlayer;
+            //If I can make space for the player or the object...
             if(groundTilemap.IsTargetTileFree((Vector3Int)GetCoordinateInDirection(playerFacingDirection)))
             {
                 //...make sure I'm not an obstacle.
