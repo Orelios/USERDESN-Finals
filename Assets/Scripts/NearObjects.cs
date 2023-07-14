@@ -12,7 +12,13 @@ public class NearObjects : MonoBehaviour
     {
         coordinates = GetComponent<PlayerCoordinates>();
     }
+
     private void Update()
+    {
+        SetTargetInteractable();
+    }
+
+    private void SetTargetInteractable()
     {
         //Set the near object that the player is looking at as the object to interact with
         foreach(InteractableObject nearObject in nearObjects)
@@ -20,6 +26,11 @@ public class NearObjects : MonoBehaviour
             if(nearObject.DirectionFromPlayer == coordinates.DirectionFacing)
             {
                 targetInteractable = nearObject;
+                break;
+            }
+            else
+            {
+                targetInteractable = null;
             }
         }
 
@@ -38,5 +49,13 @@ public class NearObjects : MonoBehaviour
     {
         if(targetInteractable == null) return;
         targetInteractable.Interact();
+    }
+
+    private void OnMoveStart()
+    {
+        foreach(InteractableObject nearObject in nearObjects)
+        {
+            nearObject.SetDirectionFromPlayer(coordinates.PositionOnGrid);
+        }
     }
 }

@@ -56,14 +56,15 @@ public class InteractableObject : LevelObject
             //If the object is on the position of the other object, don't count it.
             if(newPos == Vector2.zero) return false;
 
-            SetDirectionFromPlayer(newPos);
+            SetDirectionFromPlayer(otherObjectPos);
             return true;
         }
         else return false;
     }
 
-    private void SetDirectionFromPlayer(Vector2Int posRelativeToPlayer)
+    public void SetDirectionFromPlayer(Vector2Int position)
     {
+        Vector2Int posRelativeToPlayer = coordinates.PositionOnGrid - position;
         if(posRelativeToPlayer == Vector2Int.right) directionFromPlayer = Direction.East;
         else if(posRelativeToPlayer == Vector2Int.left) directionFromPlayer = Direction.West;
         else if(posRelativeToPlayer == Vector2Int.up) directionFromPlayer = Direction.North;

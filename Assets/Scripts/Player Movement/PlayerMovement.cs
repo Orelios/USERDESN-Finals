@@ -33,8 +33,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         groundTilemap = FindObjectOfType<GroundTilemap>();
-        controls.Actions.Move.started += _ => LookDirection();
-        controls.Actions.Move.started += _ => StartMoving();
+        controls.Actions.MoveStart.performed += _ => LookDirection();
+        controls.Actions.MoveHold.performed += _ => StartMoving();
     }
 
     private void Update()
