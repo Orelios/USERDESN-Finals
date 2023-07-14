@@ -35,6 +35,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a85d6a8-17a8-4ee1-93ad-f5a09ca67596"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -169,6 +178,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8227d7f8-bfec-4952-98e2-03e1e720c8e7"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -178,6 +198,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // Actions
         m_Actions = asset.FindActionMap("Actions", throwIfNotFound: true);
         m_Actions_Move = m_Actions.FindAction("Move", throwIfNotFound: true);
+        m_Actions_Interact = m_Actions.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,11 +259,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Actions;
     private IActionsActions m_ActionsActionsCallbackInterface;
     private readonly InputAction m_Actions_Move;
+    private readonly InputAction m_Actions_Interact;
     public struct ActionsActions
     {
         private @PlayerControls m_Wrapper;
         public ActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Actions_Move;
+        public InputAction @Interact => m_Wrapper.m_Actions_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -255,6 +278,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMove;
+                @Interact.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_ActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -262,6 +288,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -269,5 +298,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     public interface IActionsActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
