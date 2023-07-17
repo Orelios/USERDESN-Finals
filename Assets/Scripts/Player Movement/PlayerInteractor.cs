@@ -81,7 +81,7 @@ public class PlayerInteractor : MonoBehaviour
         interactableObject.IsInteractable = true;
 
         //Add the object to near objects
-        interactableObject.CheckPlayerPosition(coordinates.PositionOnGrid, coordinates.DirectionFacing, true);
+        interactableObject.CheckPlayerPosition((Vector2Int)coordinates.GroundTilemap.WorldToCell(transform.position), coordinates.DirectionFacing, true);
 
         groundTilemap.InteractableObjectCoordinates.Add(objectCarrying.GetComponent<Coordinates>().PositionOnGrid);
 
