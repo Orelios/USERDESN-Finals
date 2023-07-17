@@ -88,6 +88,7 @@ public class PlayerInteractor : MonoBehaviour
         objectCarrying = null;
 
         onPlaceObject?.Invoke();
+        ActionsManager.onPerformAction?.Invoke();
     }
 
     private Vector3Int PlacePosition(Direction playerFaceDirection)
