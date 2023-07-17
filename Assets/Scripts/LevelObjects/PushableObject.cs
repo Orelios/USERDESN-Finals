@@ -13,6 +13,12 @@ public class PushableObject : LevelObject
     {
         pushSpeed = FindObjectOfType<PlayerMovement>().MovementSpeed;
         groundTilemap = FindObjectOfType<GroundTilemap>();
+
+        //Add me to the list of pushable objects
+        if(!groundTilemap.PushableObjectCoordinates.Contains(coordinates.PositionOnGrid))
+        {
+            groundTilemap.PushableObjectCoordinates.Add(coordinates.PositionOnGrid);
+        }
     }
 
     private void BeMoved(Vector2Int moveTarget, Direction playerFacingDirection, bool isPlayer)
@@ -41,6 +47,11 @@ public class PushableObject : LevelObject
             //...set the coordinate as the move target...
             targetPosition = coordinates.GroundTilemap.GetCellCenterWorld(targetCoordinate);
 
+            if(groundTilemap.PushableObjectCoordinates.Contains(coordinates.PositionOnGrid))
+            {
+                groundTilemap.PushableObjectCoordinates.Remove(coordinates.PositionOnGrid);
+            }
+
             //...start moving.
             moving = true;
         }
@@ -57,7 +68,13 @@ public class PushableObject : LevelObject
             if(coordinates.GroundTilemap.WorldToCell(transform.position) == coordinates.GroundTilemap.WorldToCell(targetPosition)) {
                 
                 coordinates.SetCurrentPositionOnGrid(); //...update the current position on grid.
-
+                
+                //Add me to the list of pushable objects
+                if(!groundTilemap.PushableObjectCoordinates.Contains(coordinates.PositionOnGrid))
+                {
+                    groundTilemap.PushableObjectCoordinates.Add(coordinates.PositionOnGrid);
+                }
+                
                 //When the object reaches the exact position of the target...
                 if(transform.position == targetPosition)
                 {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InteractableObject : LevelObject
 {
+    private bool isInteractable = true;
+    public bool IsInteractable { get => isInteractable; set => isInteractable = value; }
     private NearObjects nearObjects;
     private Direction directionFromPlayer;
     public Direction DirectionFromPlayer { get => directionFromPlayer; }
@@ -11,21 +13,32 @@ public class InteractableObject : LevelObject
     [Header("Interact Prompt")]
     [SerializeField] private GameObject interactPrompt;
     [SerializeField] Vector3 offset;
+
+    protected GroundTilemap groundTilemap;
+
     public override void Awake()
     {
         base.Awake();
         nearObjects = FindObjectOfType<NearObjects>();
+        groundTilemap = FindObjectOfType<GroundTilemap>();
     }
-    private void CheckPlayerPosition(Vector2Int playerMoveTarget, Direction playerFacingDirection, bool isPlayer)
+
+    private void Start()
+    {
+        if(!groundTilemap.InteractableObjectCoordinates.Contains(coordinates.PositionOnGrid))
+            groundTilemap.InteractableObjectCoordinates.Add(coordinates.PositionOnGrid);
+    }
+
+    public void CheckPlayerPosition(Vector2Int playerMoveTarget, Direction playerFacingDirection, bool isPlayer)
     {
         if(isPlayer)
         {
-            if(IsAdjacentToObject(playerMoveTarget))
+            if(IsAdjacentToObject(playerMoveTarget) && isInteractable)
             {
                 if(!nearObjects.ListOfNearObjects.Contains(this))
                 {
                     //Add this object to the list of near objects
-                    FindObjectOfType<NearObjects>().ListOfNearObjects.Add(this);
+                    FindObjectOfType<NearObjects>().ListOfNearObjects.Insert(0, this);
                 }
             }
             else
