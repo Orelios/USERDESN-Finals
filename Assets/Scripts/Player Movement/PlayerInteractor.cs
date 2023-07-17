@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerInteractor : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private Vector2 offset;
     private NearObjects nearObjects;
     private PlayerCoordinates coordinates;
+    public static event Action<GameObject> onCarryObject;
+    public static event Action onPlaceObject;
 
     private void Awake()
     {
@@ -35,6 +38,8 @@ public class PlayerInteractor : MonoBehaviour
 
         //Put the object in front
         objectToCarry.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
+        onCarryObject?.Invoke(objectToCarry);
     }
 
     public bool IsCarrying()
@@ -81,6 +86,8 @@ public class PlayerInteractor : MonoBehaviour
         groundTilemap.InteractableObjectCoordinates.Add(objectCarrying.GetComponent<Coordinates>().PositionOnGrid);
 
         objectCarrying = null;
+
+        onPlaceObject?.Invoke();
     }
 
     private Vector3Int PlacePosition(Direction playerFaceDirection)
