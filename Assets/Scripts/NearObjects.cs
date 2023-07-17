@@ -18,7 +18,7 @@ public class NearObjects : MonoBehaviour
         SetTargetInteractable();
     }
 
-    private void SetTargetInteractable()
+    public void SetTargetInteractable()
     {
         //Set the near object that the player is looking at as the object to interact with
         foreach(InteractableObject nearObject in nearObjects)

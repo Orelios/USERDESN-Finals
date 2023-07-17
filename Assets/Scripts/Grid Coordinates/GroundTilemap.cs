@@ -10,7 +10,11 @@ public class GroundTilemap : MonoBehaviour
     //Obstacles
     [SerializeField]private List<Vector2Int> obstacleCoordinates = new List<Vector2Int>();
     public List<Vector2Int> ObstacleCoordinates { get => obstacleCoordinates; }
-
+    [SerializeField]private List<Vector2Int> pushableObjectCoordinates = new List<Vector2Int>();
+    public List<Vector2Int> PushableObjectCoordinates { get => pushableObjectCoordinates; }
+    [SerializeField]private List<Vector2Int> interactableObjectCoordinates = new List<Vector2Int>();
+    public List<Vector2Int> InteractableObjectCoordinates { get => interactableObjectCoordinates; }
+    
     private void Awake()
     {
         groundTilemap = GetComponent<Tilemap>();
