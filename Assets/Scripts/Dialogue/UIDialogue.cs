@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIDialogue : MonoBehaviour
 {
-    private DialogueSO script;
+    [SerializeField] private DialogueSO script;
 
     [Header("Object References")]
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -15,12 +15,20 @@ public class UIDialogue : MonoBehaviour
     [Header("Custom Values")]
     [SerializeField] private float typeSpeed;
     [SerializeField] private float animSpeed;
-
+    
     private int index = 0;
+    private Animator animator;
+    private bool isClosing;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void OnEnable()
     {
         //Trigger Open Animation
+        animator.SetTrigger("Open");
     }
 
     // Update is called once per frame
@@ -65,6 +73,7 @@ public class UIDialogue : MonoBehaviour
         }
         else
         {
+            if(isClosing) return;
             StartCoroutine(SetActiveFalse());
         }
     }
@@ -77,7 +86,6 @@ public class UIDialogue : MonoBehaviour
 
     private IEnumerator TypeLine()
     {
-        if (index == 0) yield return new WaitForSeconds(animSpeed);
         foreach(char c in script.Lines[index].ToCharArray())
         {
             dialogueText.text += c;
@@ -87,9 +95,12 @@ public class UIDialogue : MonoBehaviour
 
     private IEnumerator SetActiveFalse()
     {
+        isClosing = true;
         //Trigger Close Animation
+        animator.SetTrigger("Close");
 
         yield return new WaitForSeconds(animSpeed);
+        isClosing = false;
         gameObject.SetActive(false);
     }
 }

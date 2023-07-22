@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 432962711}
   - component: {fileID: 432962713}
   - component: {fileID: 432962712}
+  - component: {fileID: 432962714}
   m_Layer: 5
   m_Name: ArrowIndicator
   m_TagString: Untagged
@@ -733,6 +734,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432962710}
   m_CullTransparentMesh: 1
+--- !u!111 &432962714
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432962710}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 4eaf65782e614e74badc56562388675d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 4eaf65782e614e74badc56562388675d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &477287109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,6 +1629,7 @@ GameObject:
   - component: {fileID: 940326474}
   - component: {fileID: 940326473}
   - component: {fileID: 940326477}
+  - component: {fileID: 940326478}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
@@ -1668,7 +1686,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1212630535}
   arrowIndicator: {fileID: 432962712}
   typeSpeed: 0.025
-  animSpeed: 0
+  animSpeed: 1
 --- !u!114 &940326475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,6 +1755,26 @@ MonoBehaviour:
   m_DefaultActionMap: Actions
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &940326478
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940326471}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 146af451deee2f1499a82c4e351c790f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1065878081
 GameObject:
   m_ObjectHideFlags: 0
