@@ -62,6 +62,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextLine"",
+                    ""type"": ""Button"",
+                    ""id"": ""37f9e577-b1ee-4556-8d94-55e6756cc714"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -471,6 +480,39 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""MoveStart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0313af24-0ee2-4c26-b1b2-22c3f3f605bc"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLine"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69c5c111-3246-43bd-b6e1-275b3aa061c6"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLine"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2e67f19-cc13-4770-b209-0ccf93c3229c"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLine"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -483,6 +525,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Actions_MoveHold = m_Actions.FindAction("MoveHold", throwIfNotFound: true);
         m_Actions_MoveStart = m_Actions.FindAction("MoveStart", throwIfNotFound: true);
         m_Actions_Interact = m_Actions.FindAction("Interact", throwIfNotFound: true);
+        m_Actions_NextLine = m_Actions.FindAction("NextLine", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -546,6 +589,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Actions_MoveHold;
     private readonly InputAction m_Actions_MoveStart;
     private readonly InputAction m_Actions_Interact;
+    private readonly InputAction m_Actions_NextLine;
     public struct ActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -554,6 +598,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @MoveHold => m_Wrapper.m_Actions_MoveHold;
         public InputAction @MoveStart => m_Wrapper.m_Actions_MoveStart;
         public InputAction @Interact => m_Wrapper.m_Actions_Interact;
+        public InputAction @NextLine => m_Wrapper.m_Actions_NextLine;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -575,6 +620,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnInteract;
+                @NextLine.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnNextLine;
+                @NextLine.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnNextLine;
+                @NextLine.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnNextLine;
             }
             m_Wrapper.m_ActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -591,6 +639,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @NextLine.started += instance.OnNextLine;
+                @NextLine.performed += instance.OnNextLine;
+                @NextLine.canceled += instance.OnNextLine;
             }
         }
     }
@@ -601,5 +652,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnMoveHold(InputAction.CallbackContext context);
         void OnMoveStart(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnNextLine(InputAction.CallbackContext context);
     }
 }

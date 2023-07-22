@@ -97,5 +97,10 @@ public class InteractableObject : LevelObject
     public virtual void Interact()
     {
         Debug.Log("Interacted with " + gameObject.name);
+
+        //If the object has dialogue
+        DialogueStarter dialogueStarter = GetComponent<DialogueStarter>();
+        if(dialogueStarter.Script != null)
+            dialogueStarter.StartDialogue();
     }
 }

@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 4840556819076283781}
   - component: {fileID: 4840556819076283782}
   - component: {fileID: 5943144529183362002}
+  - component: {fileID: -2426509510771002172}
   m_Layer: 0
   m_Name: PickUpObject
   m_TagString: Untagged
@@ -216,7 +217,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactPrompt: {fileID: 4840556819244293059}
   offset: {x: 0, y: 0.5, z: 0}
-  pickUpOffset: {x: 0, y: 0.75}
+--- !u!114 &-2426509510771002172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840556819076283800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba030cf149974e24495211fbd4df6228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script: {fileID: 0}
 --- !u!1 &4840556819244293059
 GameObject:
   m_ObjectHideFlags: 0

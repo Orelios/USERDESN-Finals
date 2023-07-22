@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 1249562743500256850}
   - component: {fileID: 1249562743500256849}
   - component: {fileID: 1249562743500256848}
+  - component: {fileID: -741525630000349668}
   m_Layer: 0
   m_Name: InteractableObject
   m_TagString: Untagged
@@ -351,3 +352,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactPrompt: {fileID: 1249562743332229140}
   offset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &-741525630000349668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249562743500256847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba030cf149974e24495211fbd4df6228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script: {fileID: 11400000, guid: 8fccae56009f87345aec30af986f5ef2, type: 2}
