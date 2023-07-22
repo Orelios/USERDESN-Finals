@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5269f971b89f6a24d93a9fe458a3cd2a, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
+  icon: {fileID: -5177388603050735206, guid: c88f76b6dcd640b4f95dc1cc4255baa7, type: 3}
   speaker: 
   lines:
   - Aerials in the sky...
