@@ -17,8 +17,12 @@ public class NoteItem : MonoBehaviour
 
     public void OpenPopUp()
     {
-        if(!notePopUpPanel.activeSelf) notePopUpPanel.SetActive(true);
-
+        if(!notePopUpPanel.activeSelf) 
+        {
+            notePopUpPanel.SetActive(true);
+            notePopUpPanel.GetComponent<Animator>().SetTrigger("Open");
+        }
+        
         notePopUpPanel.transform.GetChild(1).GetComponent<Image>().sprite = dialogue.Icon;
 
         notePopUpPanel.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.GetCompleteScript();

@@ -12,7 +12,11 @@ public class NotesManager : MonoBehaviour
     [SerializeField] private GameObject noteItemPrefab;
     [SerializeField] private Transform noteItemParent;
     [SerializeField] private GameObject notesPopUp;
+    [SerializeField] private GameObject newNotesNotif;
     public GameObject NotesPopUp { get => notesPopUp; }
+    private bool isNotesUIClosing;
+    private bool isNotesPopUpClosing;
+    private int newNotes;
 
     public void AddToNotes(DialogueSO dialogue)
     {
@@ -23,6 +27,12 @@ public class NotesManager : MonoBehaviour
 
         //Update UI
         AddNoteUI(dialogue);
+
+        if(!notesUI.activeSelf)
+        {
+            newNotes++;
+            UpdateNewNotesUI();
+        }
     }
 
     private void AddNoteUI(DialogueSO dialogue)
@@ -43,21 +53,59 @@ public class NotesManager : MonoBehaviour
     {
         if(notesUI.activeSelf)
         {
-            //Play close animation
-            notesUI.SetActive(false);
-
-            CloseNotePopUp();
+            if(!isNotesUIClosing) 
+            {
+                //Play close animation
+                notesUI.GetComponent<Animator>().SetTrigger("Close");
+                isNotesUIClosing = true;
+                StartCoroutine(SetUIInactive(notesUI, 0.25f));
+                isNotesUIClosing = false;
+            }
+            if(!isNotesPopUpClosing && notesPopUp.activeSelf)
+            {
+                isNotesPopUpClosing = true;
+                CloseNotePopUp();
+                isNotesPopUpClosing = false;
+            }
         }
         else
         {
-            //Play open animation
             notesUI.SetActive(true);
+            //Play open animation
+            notesUI.GetComponent<Animator>().SetTrigger("Open");
+
+            newNotes = 0;
+            UpdateNewNotesUI();
+        }
+    }
+
+    private IEnumerator SetUIInactive(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        obj.SetActive(false);
+    }
+
+    private void UpdateNewNotesUI()
+    {
+        if(newNotes > 0)
+        {
+            //Enable new notes notification
+            newNotesNotif.SetActive(true);
+
+            //Set the text
+            newNotesNotif.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = newNotes.ToString();
+        }
+        else
+        {
+            //Disable new notes notification
+            newNotesNotif.SetActive(false);
         }
     }
 
     public void CloseNotePopUp()
     {
         //Play close animation
-        notesPopUp.SetActive(false);
+        notesPopUp.GetComponent<Animator>().SetTrigger("Close");
+        StartCoroutine(SetUIInactive(notesPopUp, 0.25f));
     }
 }
