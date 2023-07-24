@@ -19,10 +19,12 @@ public class UIDialogue : MonoBehaviour
     private int index = 0;
     private Animator animator;
     private bool isClosing;
+    private NotesManager notesManager;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        notesManager = FindObjectOfType<NotesManager>();
     }
 
     private void OnEnable()
@@ -74,6 +76,7 @@ public class UIDialogue : MonoBehaviour
         else
         {
             if(isClosing) return;
+            notesManager.AddToNotes(script);
             StartCoroutine(SetActiveFalse());
         }
     }
