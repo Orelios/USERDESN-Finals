@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5269f971b89f6a24d93a9fe458a3cd2a, type: 3}
+  m_Name: Bed
+  m_EditorClassIdentifier: 
+  icon: {fileID: -5177388603050735206, guid: c88f76b6dcd640b4f95dc1cc4255baa7, type: 3}
+  speaker: MC
+  lines:
+  - My bed. I don't want to leave...
