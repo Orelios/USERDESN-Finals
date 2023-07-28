@@ -73,7 +73,7 @@ public class ActionsManager : MonoBehaviour
 
         onPerformAction += DecrementActionCounter; //Subscribe DecrementActionCounter function to a Perform Action event.
 
-        onOutOfActions += SayOutOfActions; //Feel free to remove this part. This is just a sample for the onOutOfActions event.
+        onOutOfActions += OutOfActions; //Feel free to remove this part. This is just a sample for the onOutOfActions event.
     }
 
     private void OnDisable()
@@ -89,12 +89,14 @@ public class ActionsManager : MonoBehaviour
 
         onPerformAction -= DecrementActionCounter;
 
-        onOutOfActions -= SayOutOfActions; //Feel free to remove this part. This is just a sample for the onOutOfActions event.
+        onOutOfActions -= OutOfActions; //Feel free to remove this part. This is just a sample for the onOutOfActions event.
     }
 
     //Feel free to remove this part. This is just a sample for the onOutOfActions event.
-    private void SayOutOfActions()
+    private void OutOfActions()
     {
+        LivesCounter.instance.MinusHealth();
+        NumActions = actionCounterSO.InitialNumberOfActions;
         Debug.Log("You are out of actions!");
     }
 }

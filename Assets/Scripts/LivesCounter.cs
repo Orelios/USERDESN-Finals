@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class LivesCounter : MonoBehaviour
 {
+    public static LivesCounter instance; 
     public int health;
     [SerializeField] private int maxHealth = 3;
     public SceneLoader sceneloader;
-    void Start()
+    private void Awake()
     {
-        
+        instance = this; 
     }
 
-   
     void Update()
     {
         if(health == 0)
