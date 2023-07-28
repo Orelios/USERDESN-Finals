@@ -237,6 +237,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 4840556819076283780, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -367,6 +371,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: d7518c7ec8bdc684a87b407cdccecc0c, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (8)
@@ -424,6 +432,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 4840556819076283780, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -485,6 +497,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: d7518c7ec8bdc684a87b407cdccecc0c, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (11)
@@ -577,6 +593,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 44e690bbf0287fb4e807b9059f60d16b, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (4)
@@ -638,6 +658,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: f72e69748718d4b40ad2caf72bea886b, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743332229140, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -789,6 +813,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: d7518c7ec8bdc684a87b407cdccecc0c, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (10)
@@ -846,6 +874,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Computer2
@@ -907,6 +939,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 00ca5704ac0ccb643a831121f33e8f5d, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_ScatteredPaper2
@@ -1045,6 +1081,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 00ca5704ac0ccb643a831121f33e8f5d, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_ScatteredPaper3
@@ -1918,6 +1958,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Pedestal
@@ -2938,6 +2982,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: d7518c7ec8bdc684a87b407cdccecc0c, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (5)
@@ -3068,6 +3116,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: f72e69748718d4b40ad2caf72bea886b, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Bed2
@@ -3172,6 +3224,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 00ca5704ac0ccb643a831121f33e8f5d, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_ScatteredPaper1
@@ -3421,6 +3477,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_TrashCan
@@ -3551,6 +3611,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 00ca5704ac0ccb643a831121f33e8f5d, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_ScatteredPaper1
@@ -3645,6 +3709,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Desk1
@@ -5806,6 +5874,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: d7518c7ec8bdc684a87b407cdccecc0c, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (7)
@@ -5863,6 +5935,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 4840556819076283780, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -6579,6 +6655,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 591047489}
+    - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4840556819076283780, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -6709,6 +6793,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 44e690bbf0287fb4e807b9059f60d16b, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (3)
@@ -6770,6 +6858,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: d7518c7ec8bdc684a87b407cdccecc0c, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (12)
@@ -6827,6 +6919,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Computer1
@@ -6888,6 +6984,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: d7518c7ec8bdc684a87b407cdccecc0c, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (9)
@@ -7277,6 +7377,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 4840556819076283780, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -7414,6 +7518,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 44e690bbf0287fb4e807b9059f60d16b, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (2)
@@ -7516,6 +7624,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Desk2
@@ -8030,6 +8142,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: d7518c7ec8bdc684a87b407cdccecc0c, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: InteractableObject (6)
