@@ -1996,6 +1996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues: []
+  notesSaved: {fileID: 11400000, guid: 1c8994845d0ffe349bfa50ac909a6ec0, type: 2}
   notesUI: {fileID: 792768029}
   noteItemPrefab: {fileID: 1331838527597760913, guid: ebb7e0c673cbdb34d990e4de5d1a17af, type: 3}
   noteItemParent: {fileID: 729499919}
@@ -8591,7 +8592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c2d2299fe657e4382906b539feadd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPresist: 0
+  isPresist: 1
   health: 3
   maxHealth: 3
 --- !u!4 &2049252027

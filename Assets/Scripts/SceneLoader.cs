@@ -45,7 +45,6 @@ public class SceneLoader : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log(GameOverScreenString);
         GoToSpecifiedScene(GameOverScreenString);
     }
 

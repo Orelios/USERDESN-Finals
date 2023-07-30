@@ -7,6 +7,7 @@ using TMPro;
 public class NotesManager : MonoBehaviour
 {
     [SerializeField] private List<DialogueSO> dialogues = new List<DialogueSO>();
+    [SerializeField] private NotesSavedSO notesSaved;
     [Header("UI")]
     [SerializeField] private GameObject notesUI;
     [SerializeField] private GameObject noteItemPrefab;
@@ -17,6 +18,19 @@ public class NotesManager : MonoBehaviour
     private bool isNotesUIClosing;
     private bool isNotesPopUpClosing;
     private int newNotes;
+
+    private void Start()
+    {
+        InitializeNotes();
+    }
+
+    private void InitializeNotes()
+    {
+        foreach(DialogueSO dialogueSO in notesSaved.Notes)
+        {
+            AddToNotes(dialogueSO);
+        }
+    }
 
     public void AddToNotes(DialogueSO dialogue)
     {
@@ -107,5 +121,15 @@ public class NotesManager : MonoBehaviour
         //Play close animation
         notesPopUp.GetComponent<Animator>().SetTrigger("Close");
         StartCoroutine(SetUIInactive(notesPopUp, 0.25f));
+    }
+
+    public void SaveNotes()
+    {
+        notesSaved.Notes = dialogues;
+    }
+
+    public void ClearSavedNotes()
+    {
+        notesSaved.ClearSavedNotes();
     }
 }

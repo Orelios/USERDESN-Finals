@@ -18,11 +18,13 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private List<PuzzleObject> puzzleObjects = new List<PuzzleObject>();
     private SceneLoader sceneLoader;
     private LivesCounter livesCounter;
+    private NotesManager notesManager;
 
     void Awake()
     {
         sceneLoader = FindObjectOfType<SceneLoader>();
         livesCounter = FindObjectOfType<LivesCounter>();
+        notesManager = FindObjectOfType<NotesManager>();
     }
 
     // Start is called before the first frame update
@@ -50,12 +52,14 @@ public class PuzzleManager : MonoBehaviour
         {
             //Next scene
             Debug.Log("Correct Answer! Moving to next scene.");
+            notesManager.ClearSavedNotes();
             sceneLoader.PlayNextScene();
         }
         else
         {
             //Restart Level
             Debug.Log("Wrong Answer! Restarting Level.");
+            notesManager.SaveNotes();
             livesCounter.MinusHealth();
             if(livesCounter.health != 0)
                 sceneLoader.ReplayCurrentScene();
