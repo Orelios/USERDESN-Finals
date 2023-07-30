@@ -3,6 +3,7 @@ using System;
 
 public class ActionsManager : MonoBehaviour
 {
+    public static ActionsManager instance;
     private ActionCounterSO actionCounterSO;    //This is where the Initial Number of Actions can be found.
     public ActionCounterSO ActionCounterSO { get => actionCounterSO; }
     
@@ -36,6 +37,7 @@ public class ActionsManager : MonoBehaviour
     
     private void Awake()
     {
+        instance = this; 
         actionCounterSO = Resources.Load<ActionCounterSO>("NumberOfActions");
     }
 
@@ -58,7 +60,7 @@ public class ActionsManager : MonoBehaviour
 
     public void DecrementActionCounter()    //Call this whenever an action is made, or subscribe it to an event
     {
-        if(IsOutOfActions()) return; 
+        if (IsOutOfActions()) return; 
         NumActions--; 
     }
 
