@@ -6,12 +6,18 @@ using TMPro;
 
 public class NotesManager : MonoBehaviour
 {
-    [SerializeField] private List<DialogueSO> dialogues = new List<DialogueSO>();
-    [SerializeField] private NotesSavedSO notesSaved;
+    [SerializeField] private List<DialogueSO> hintNotes = new List<DialogueSO>();
+    public List<DialogueSO> HintNotes { get => hintNotes; }
+    [SerializeField] private List<DialogueSO> puzzleNotes = new List<DialogueSO>();
+    public List<DialogueSO> PuzzleNotes { get => puzzleNotes; }
+    [SerializeField] private NotesSavedSO hintNotesSaved;
+    [SerializeField] private NotesSavedSO puzzleNotesSaved;
     [Header("UI")]
     [SerializeField] private GameObject notesUI;
+    //[SerializeField] private GameObject hintsUI;
     [SerializeField] private GameObject noteItemPrefab;
-    [SerializeField] private Transform noteItemParent;
+    [SerializeField] private Transform hintNoteItemParent;
+    [SerializeField] private Transform puzzleNoteItemParent;
     [SerializeField] private GameObject notesPopUp;
     [SerializeField] private GameObject newNotesNotif;
     public GameObject NotesPopUp { get => notesPopUp; }
@@ -26,21 +32,26 @@ public class NotesManager : MonoBehaviour
 
     private void InitializeNotes()
     {
-        foreach(DialogueSO dialogueSO in notesSaved.Notes)
+        foreach(DialogueSO dialogueSO in hintNotesSaved.Notes)
         {
-            AddToNotes(dialogueSO);
+            AddToNotes(hintNotes, dialogueSO);
+        }
+
+        foreach(DialogueSO dialogueSO in puzzleNotesSaved.Notes)
+        {
+            AddToNotes(puzzleNotes, dialogueSO);
         }
     }
 
-    public void AddToNotes(DialogueSO dialogue)
+    public void AddToNotes(List<DialogueSO> dialogueList, DialogueSO dialogue)
     {
-        if(dialogues.Contains(dialogue)) return;
+        if(dialogueList.Contains(dialogue)) return;
 
         //Add dialogue to list
-        dialogues.Add(dialogue);
+        dialogueList.Add(dialogue);
 
         //Update UI
-        AddNoteUI(dialogue);
+        AddNoteUI(dialogueList == hintNotes ? hintNoteItemParent : puzzleNoteItemParent, dialogue);
 
         if(!notesUI.activeSelf)
         {
@@ -49,9 +60,9 @@ public class NotesManager : MonoBehaviour
         }
     }
 
-    private void AddNoteUI(DialogueSO dialogue)
+    private void AddNoteUI(Transform noteParent, DialogueSO dialogue)
     {
-        GameObject instance = Instantiate(noteItemPrefab, noteItemPrefab.transform.position, Quaternion.identity, noteItemParent);
+        GameObject instance = Instantiate(noteItemPrefab, noteItemPrefab.transform.position, Quaternion.identity, noteParent);
 
         //Set the image icon to the corresponding sprite in the DialogueSO
         instance.transform.GetChild(0).GetComponent<Image>().sprite = dialogue.Icon;
@@ -125,11 +136,13 @@ public class NotesManager : MonoBehaviour
 
     public void SaveNotes()
     {
-        notesSaved.Notes = dialogues;
+        hintNotesSaved.Notes = hintNotes;
+        puzzleNotesSaved.Notes = puzzleNotes;
     }
 
     public void ClearSavedNotes()
     {
-        notesSaved.ClearSavedNotes();
+        hintNotesSaved.ClearSavedNotes();
+        puzzleNotesSaved.ClearSavedNotes();
     }
 }

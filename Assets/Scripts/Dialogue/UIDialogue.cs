@@ -76,7 +76,19 @@ public class UIDialogue : MonoBehaviour
         else
         {
             if(isClosing) return;
-            notesManager.AddToNotes(script);
+
+            switch(script.TypeOfNote)
+            {
+                case NoteType.hint:
+                    notesManager.AddToNotes(notesManager.HintNotes, script);
+                    break;
+                case NoteType.puzzle:
+                    notesManager.AddToNotes(notesManager.PuzzleNotes, script);
+                    break;
+                default:
+                    break;
+            }
+            
             StartCoroutine(SetActiveFalse());
         }
     }
