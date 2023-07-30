@@ -16,6 +16,13 @@ public class PuzzleObject
 public class PuzzleManager : MonoBehaviour
 {
     [SerializeField] private List<PuzzleObject> puzzleObjects = new List<PuzzleObject>();
+    private SceneLoader sceneLoader;
+
+    void Awake()
+    {
+        sceneLoader = FindObjectOfType<SceneLoader>();
+    }
+
     // Start is called before the first frame update
     private void CheckIfInPosition()
     {
@@ -41,11 +48,13 @@ public class PuzzleManager : MonoBehaviour
         {
             //Next scene
             Debug.Log("Correct Answer! Moving to next scene.");
+            sceneLoader.PlayNextScene();
         }
         else
         {
             //Restart Level
             Debug.Log("Wrong Answer! Restarting Level.");
+            sceneLoader.ReplayCurrentScene();
         }
     } 
 
