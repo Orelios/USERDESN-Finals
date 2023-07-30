@@ -1402,6 +1402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesCounter: {fileID: 2023430168}
+  player: {fileID: 532194513}
 --- !u!114 &477287112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8372,9 +8373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c2d2299fe657e4382906b539feadd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPresist: 0
   health: 3
   maxHealth: 3
-  sceneloader: {fileID: 761487854}
 --- !u!1 &2031798362
 GameObject:
   m_ObjectHideFlags: 0
