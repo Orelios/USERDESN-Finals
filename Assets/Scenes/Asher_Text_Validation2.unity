@@ -2344,7 +2344,7 @@ MonoBehaviour:
   dialogues: []
   notesUI: {fileID: 792768029}
   noteItemPrefab: {fileID: 1331838527597760913, guid: ebb7e0c673cbdb34d990e4de5d1a17af, type: 3}
-  noteItemParent: {fileID: 729499919}
+  noteItemParent: {fileID: 0}
   notesPopUp: {fileID: 463920079}
   newNotesNotif: {fileID: 2087601073}
 --- !u!4 &539794752
@@ -8784,31 +8784,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ce6b6d113e46f4b83777b2170a9070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  question:
-  - 
-  - What is 1 + 1
-  - What is 2 + 2?
-  displayQuestions: {fileID: 233869285}
-  Choice1: {fileID: 610347174}
-  Choice2: {fileID: 934386501}
-  Choice3: {fileID: 1289782355}
-  choice1:
-  - 
-  - a.) 2
-  - a.) 4
-  choice2:
-  - 
-  - b.) 4
-  - b.) 8
-  choice3:
-  - 
-  - c.) 6
-  - c.) 12
-  answer:
-  - 
-  - a
-  - a
-  inputField: {fileID: 1697272995}
+  question: []
+  displayQuestions: {fileID: 0}
+  Choice1: {fileID: 0}
+  Choice2: {fileID: 0}
+  Choice3: {fileID: 0}
+  choice1: []
+  choice2: []
+  choice3: []
+  answer: []
+  inputField: {fileID: 0}
 --- !u!4 &1638258783
 Transform:
   m_ObjectHideFlags: 0
