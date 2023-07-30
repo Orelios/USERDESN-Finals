@@ -14,7 +14,8 @@ public class ConfirmObject : InteractableObject
 
     public override void Interact()
     {
-        base.Interact();
+        if(FindObjectOfType<UIDialogue>(true).gameObject.activeSelf) return;
+        //base.Interact();
         Invoke("ConfirmAnswer", 0.1f);
     }
 

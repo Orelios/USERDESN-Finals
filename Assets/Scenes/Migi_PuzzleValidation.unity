@@ -2449,6 +2449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1249562743500256848, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+    - {fileID: -741525630000349668, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
 --- !u!1 &539794750
 GameObject:
@@ -3631,6 +3632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 871046822}
   - component: {fileID: 871046821}
+  - component: {fileID: 871046823}
   m_Layer: 0
   m_Name: PuzzleManager
   m_TagString: Untagged
@@ -3654,15 +3656,19 @@ MonoBehaviour:
   - coordinate: {x: -11, y: 15}
     puzzleObject: {fileID: 1007738235}
     isInPosition: 0
+    puzzleHint: {fileID: 11400000, guid: eeea89a1297c9214dbbc741dd78dd555, type: 2}
   - coordinate: {x: -11, y: 13}
     puzzleObject: {fileID: 404116024}
     isInPosition: 0
+    puzzleHint: {fileID: 11400000, guid: 13223771e6464254fbee6b4211197fe2, type: 2}
   - coordinate: {x: -1, y: 14}
     puzzleObject: {fileID: 75122260}
     isInPosition: 0
+    puzzleHint: {fileID: 11400000, guid: f2db898f6a395a54da3c8570786fc1cc, type: 2}
   - coordinate: {x: -1, y: 13}
     puzzleObject: {fileID: 376001478}
     isInPosition: 0
+    puzzleHint: {fileID: 11400000, guid: c0560e82ab2bbdb4091e2e8bc0c19484, type: 2}
 --- !u!4 &871046822
 Transform:
   m_ObjectHideFlags: 0
@@ -3678,6 +3684,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &871046823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871046820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba030cf149974e24495211fbd4df6228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script: {fileID: 0}
 --- !u!1 &874767137
 GameObject:
   m_ObjectHideFlags: 0

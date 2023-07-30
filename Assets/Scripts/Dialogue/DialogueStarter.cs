@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueStarter : MonoBehaviour
 {
     [SerializeField] private DialogueSO script;
-    public DialogueSO Script { get => script; }
+    public DialogueSO Script { get => script; set => script = value; }
     private UIDialogue dialogueUI;
 
     private void Awake()
@@ -17,6 +17,11 @@ public class DialogueStarter : MonoBehaviour
     {
         if (dialogueUI.gameObject.activeSelf) return;
         dialogueUI.gameObject.SetActive(true);
+        dialogueUI.StartNewDialogue(script);
+    }
+
+    public void ForceStartDialogue()
+    {
         dialogueUI.StartNewDialogue(script);
     }
 }

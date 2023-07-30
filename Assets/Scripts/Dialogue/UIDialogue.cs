@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class UIDialogue : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class UIDialogue : MonoBehaviour
     private Animator animator;
     private bool isClosing;
     private NotesManager notesManager;
+    public static event Action onDialogueExtend;
+    public static event Action onFinishedDialogue;
 
     private void Awake()
     {
@@ -110,12 +113,22 @@ public class UIDialogue : MonoBehaviour
 
     private IEnumerator SetActiveFalse()
     {
-        isClosing = true;
-        //Trigger Close Animation
-        animator.SetTrigger("Close");
+        if(onDialogueExtend != null)
+        { 
+            onDialogueExtend?.Invoke();
+            yield return new WaitForEndOfFrame();
+        }
+        else 
+        {
+            isClosing = true;
+            //Trigger Close Animation
+            animator.SetTrigger("Close");
 
-        yield return new WaitForSeconds(animSpeed);
-        isClosing = false;
-        gameObject.SetActive(false);
+            yield return new WaitForSeconds(animSpeed);
+            isClosing = false;
+            onFinishedDialogue?.Invoke();
+            gameObject.SetActive(false);
+        }
+        
     }
 }
