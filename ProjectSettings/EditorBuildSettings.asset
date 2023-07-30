@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: ee56e3cf43403de409bdb41cd9f5409a
   - enabled: 1
+    path: Assets/Scenes/Migi_PuzzleValidation.unity
+    guid: f4a9defb10b0d3741831eb542db71248
+  - enabled: 1
     path: Assets/Scenes/GameOverScreen.unity
     guid: f7bcfd24935ec29448f0804274c45031
   m_configObjects: {}

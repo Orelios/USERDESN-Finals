@@ -45,6 +45,7 @@ public class SceneLoader : MonoBehaviour
 
     public void GameOver()
     {
+        Debug.Log(GameOverScreenString);
         GoToSpecifiedScene(GameOverScreenString);
     }
 
@@ -61,5 +62,10 @@ public class SceneLoader : MonoBehaviour
     public void GoToSpecifiedScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void ReplayCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
