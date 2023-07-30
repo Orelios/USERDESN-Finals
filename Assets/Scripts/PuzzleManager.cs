@@ -17,10 +17,12 @@ public class PuzzleManager : MonoBehaviour
 {
     [SerializeField] private List<PuzzleObject> puzzleObjects = new List<PuzzleObject>();
     private SceneLoader sceneLoader;
+    private LivesCounter livesCounter;
 
     void Awake()
     {
         sceneLoader = FindObjectOfType<SceneLoader>();
+        livesCounter = FindObjectOfType<LivesCounter>();
     }
 
     // Start is called before the first frame update
@@ -54,7 +56,9 @@ public class PuzzleManager : MonoBehaviour
         {
             //Restart Level
             Debug.Log("Wrong Answer! Restarting Level.");
-            sceneLoader.ReplayCurrentScene();
+            livesCounter.MinusHealth();
+            if(livesCounter.health != 0)
+                sceneLoader.ReplayCurrentScene();
         }
     } 
 
