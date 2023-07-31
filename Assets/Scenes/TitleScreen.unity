@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TitleSceneString: TitleScreen
-  StartingSceneString: Main
+  StartingSceneString: Tutorial
   GameOverScreenString: GameOverScreen
 --- !u!114 &1509918461
 MonoBehaviour:

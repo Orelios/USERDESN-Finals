@@ -6,26 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private string TitleSceneString = "TitleScreen";
-    [SerializeField] private string StartingSceneString = "Main";
+    [SerializeField] private string StartingSceneString = "Tutorial";
     [SerializeField] private string GameOverScreenString = "GameOverScreen";
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            switch (this.gameObject.tag)
-            {
-                case "WarpNext":
-                    PlayNextScene();
-                    break;
-                case "WarpPrevious":
-                    PlayPreviousScene();
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
 
     public void PlayGame()
     {
