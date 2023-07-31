@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class LivesCounter : Singleton<LivesCounter>
 {
     [Header("Lives")]
@@ -13,6 +13,7 @@ public class LivesCounter : Singleton<LivesCounter>
 
         if(health == 0)
         {
+            FindObjectOfType<NotesManager>().ClearSavedNotes();
             FindObjectOfType<SceneLoader>().GameOver();
         }
     }
