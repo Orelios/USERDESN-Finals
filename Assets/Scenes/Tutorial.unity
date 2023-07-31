@@ -12054,7 +12054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPresist: 1
-  health: 3
+  health: 6
   maxHealth: 3
   tutorialHealth: 6
 --- !u!4 &2049252027

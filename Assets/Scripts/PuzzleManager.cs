@@ -62,6 +62,7 @@ public class PuzzleManager : MonoBehaviour
             //Next scene
             Debug.Log("Correct Answer! Moving to next scene.");
             notesManager.ClearSavedNotes();
+            livesCounter.SetHealthToMaxHealth();
             sceneLoader.PlayNextScene();
         }
         else
