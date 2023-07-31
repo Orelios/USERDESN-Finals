@@ -16,7 +16,7 @@ public class Coordinates : MonoBehaviour
     [SerializeField] private Vector2Int positionOnGrid;
     public Vector2Int PositionOnGrid { get => positionOnGrid; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         groundTilemap = GameObject.Find("GroundTilemap").GetComponent<Tilemap>();
     }
