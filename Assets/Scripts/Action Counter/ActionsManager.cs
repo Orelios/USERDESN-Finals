@@ -4,9 +4,9 @@ using System;
 public class ActionsManager : MonoBehaviour
 {
     public static ActionsManager instance;
-    private ActionCounterSO actionCounterSO;    //This is where the Initial Number of Actions can be found.
+    [SerializeField] private ActionCounterSO actionCounterSO;    //This is where the Initial Number of Actions can be found.
     public ActionCounterSO ActionCounterSO { get => actionCounterSO; }
-    
+
     private int numActions;    //This handles the current number of actions the player has in the current level.
 
     private Vector3 startingCoordinates;
@@ -36,11 +36,13 @@ public class ActionsManager : MonoBehaviour
 
     //Event for when player runs out of actions
     public static event Action onOutOfActions;  //Things that happen when the player runs out of actions should be subscribed to this event.
-    
+
     private void Awake()
     {
-        instance = this; 
+        instance = this;
         actionCounterSO = Resources.Load<ActionCounterSO>("NumberOfActions");
+        //LivesCounter.Instance.health = LivesCounter.Instance.maxHealth;
+
         startingCoordinates = LivesCounterDisplay.instance.player.transform.position;
         TutorialCoordinates = new Vector3(-0.5f, -3.5f, 0);
         if (startingCoordinates == TutorialCoordinates)
@@ -51,6 +53,7 @@ public class ActionsManager : MonoBehaviour
         {
             LivesCounter.Instance.health = LivesCounter.Instance.maxHealth;
         }
+
     }
 
     private void Start()    //This can be removed once there is a Level Start event that InitializeActionCount can be subscribed to.
@@ -58,7 +61,7 @@ public class ActionsManager : MonoBehaviour
         InitializeActionCount();
     }
 
-    private bool IsOutOfActions() 
+    private bool IsOutOfActions()
     {
         return (numActions <= 0) ? true : false;
     }
@@ -71,8 +74,8 @@ public class ActionsManager : MonoBehaviour
 
     public void DecrementActionCounter()    //Call this whenever an action is made, or subscribe it to an event
     {
-        if (IsOutOfActions()) return; 
-        NumActions--; 
+        if (IsOutOfActions()) return;
+        NumActions--;
     }
 
     private void OnEnable()
@@ -95,11 +98,11 @@ public class ActionsManager : MonoBehaviour
     private void OnDisable()
     {
         /*
-        
+
         If an event was used, don't forget to unsubscribe the function from the event.
 
-        Example: 
-        LevelManager.onStartLevel -= InitializeActionCount;  
+        Example:
+        LevelManager.onStartLevel -= InitializeActionCount;
 
         */
 
@@ -113,7 +116,7 @@ public class ActionsManager : MonoBehaviour
     {
         LivesCounter.Instance.MinusHealth();
         NumActions = actionCounterSO.InitialNumberOfActions;
-        LivesCounterDisplay.instance.player.transform.position = startingCoordinates; 
+        LivesCounterDisplay.instance.player.transform.position = startingCoordinates;
         Debug.Log("You are out of actions!");
     }
 }
