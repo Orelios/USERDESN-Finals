@@ -2435,22 +2435,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleObjects:
-  - coordinate: {x: -11, y: 15}
+  - coordinate: {x: 0, y: 0}
     puzzleObject: {fileID: 0}
     isInPosition: 0
-    puzzleHint: {fileID: 11400000, guid: eeea89a1297c9214dbbc741dd78dd555, type: 2}
-  - coordinate: {x: -11, y: 13}
+    puzzleHint: {fileID: 0}
+  - coordinate: {x: 0, y: 0}
     puzzleObject: {fileID: 0}
     isInPosition: 0
-    puzzleHint: {fileID: 11400000, guid: 13223771e6464254fbee6b4211197fe2, type: 2}
-  - coordinate: {x: -1, y: 14}
+    puzzleHint: {fileID: 0}
+  - coordinate: {x: 0, y: 0}
     puzzleObject: {fileID: 0}
     isInPosition: 0
-    puzzleHint: {fileID: 11400000, guid: f2db898f6a395a54da3c8570786fc1cc, type: 2}
-  - coordinate: {x: -1, y: 13}
+    puzzleHint: {fileID: 0}
+  - coordinate: {x: 0, y: 0}
     puzzleObject: {fileID: 0}
     isInPosition: 0
-    puzzleHint: {fileID: 11400000, guid: c0560e82ab2bbdb4091e2e8bc0c19484, type: 2}
+    puzzleHint: {fileID: 0}
+  - coordinate: {x: 0, y: 0}
+    puzzleObject: {fileID: 0}
+    isInPosition: 0
+    puzzleHint: {fileID: 0}
+  - coordinate: {x: 0, y: 0}
+    puzzleObject: {fileID: 0}
+    isInPosition: 0
+    puzzleHint: {fileID: 0}
   puzzleHints: []
 --- !u!4 &700231809
 Transform:
