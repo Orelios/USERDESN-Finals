@@ -2735,7 +2735,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -783664225, guid: 14c81aeb71e54014a9191688e31e6f88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2789,6 +2789,10 @@ MonoBehaviour:
   groundTilemap: {fileID: 0}
   positionOnGrid: {x: 0, y: 0}
   directionFacing: 1
+  spriteUp: {fileID: 1674149425, guid: 14c81aeb71e54014a9191688e31e6f88, type: 3}
+  spriteDown: {fileID: -783664225, guid: 14c81aeb71e54014a9191688e31e6f88, type: 3}
+  spriteRight: {fileID: 1207787703, guid: 14c81aeb71e54014a9191688e31e6f88, type: 3}
+  spriteLeft: {fileID: -424551127, guid: 14c81aeb71e54014a9191688e31e6f88, type: 3}
 --- !u!114 &532194518
 MonoBehaviour:
   m_ObjectHideFlags: 0
