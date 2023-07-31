@@ -24,6 +24,12 @@ public class NotesManager : MonoBehaviour
     private bool isNotesUIClosing;
     private bool isNotesPopUpClosing;
     private int newNotes;
+    private PuzzleManager puzzleManager;
+
+    private void Awake()
+    {
+        puzzleManager = FindObjectOfType<PuzzleManager>();
+    }
 
     private void Start()
     {
@@ -137,7 +143,7 @@ public class NotesManager : MonoBehaviour
     public void SaveNotes()
     {
         hintNotesSaved.Notes = hintNotes;
-        puzzleNotesSaved.Notes = puzzleNotes;
+        puzzleNotesSaved.Notes = puzzleManager.PuzzleHints;
     }
 
     public void ClearSavedNotes()

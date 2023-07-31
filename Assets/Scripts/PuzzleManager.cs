@@ -19,6 +19,7 @@ public class PuzzleManager : MonoBehaviour
 {
     [SerializeField] private List<PuzzleObject> puzzleObjects = new List<PuzzleObject>();
     [SerializeField] private List<DialogueSO> puzzleHints = new List<DialogueSO>();
+    public List<DialogueSO> PuzzleHints { get => puzzleHints; }
     private SceneLoader sceneLoader;
     private LivesCounter livesCounter;
     private NotesManager notesManager;
