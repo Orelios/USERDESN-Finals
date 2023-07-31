@@ -8,6 +8,7 @@ public class WordChecker : MonoBehaviour
 {
     [Header("Screen")]
     public GameObject textValidationScreen;
+    public GameObject input; 
 
     [Header("Question")]
     [SerializeField] private string[] question;
@@ -30,6 +31,10 @@ public class WordChecker : MonoBehaviour
     [SerializeField] private string[] displayAnswer;
 
     private int questionNumber = 1;
+    private void Start()
+    {
+        displayAnswerText.CrossFadeAlpha(0.0f, 0, true);
+    }
     public void Update()
     {
         DisplayQuestion();
@@ -37,26 +42,32 @@ public class WordChecker : MonoBehaviour
     public void InputAsnwer()
     {
         bool ans;
-        displayAnswer[questionNumber] = inputField.text;
-        DisplayAnswers();
-        Debug.Log(displayAnswer[questionNumber]);
-        if (inputField.text == answer[questionNumber])
+        try
         {
-            Debug.Log("correct");
-            inputField.text = null;
-            ans = true;
-            questionNumber++;
-        }
-        else
-        {
-            Debug.Log("Wrong");
-            inputField.text = null;
-            ans = false;
-            questionNumber++;
-        }
+            displayAnswer[questionNumber] = inputField.text;
+            DisplayAnswers();
+            if (inputField.text == answer[questionNumber])
+            {
+                Debug.Log("correct");
+                inputField.text = null;
+                ans = true;
+                questionNumber++;
+            }
+            else
+            {
+                Debug.Log("Wrong");
+                inputField.text = null;
+                ans = false;
+                questionNumber++;
+            }
 
-        CheckAnswer(ans);
-        ActionsManager.instance.DecrementActionCounter();
+            CheckAnswer(ans);
+            ActionsManager.instance.DecrementActionCounter();
+        }
+        catch
+        {
+            input.SetActive(false); 
+        }
     }
 
     public void DisplayQuestion()
@@ -74,6 +85,8 @@ public class WordChecker : MonoBehaviour
             Choice1.text = choice1[0];
             Choice2.text = choice2[0];
             Choice3.text = choice3[0];
+            displayAnswerText.CrossFadeAlpha(1.0f, 0, true);
+
         }
     }
 
