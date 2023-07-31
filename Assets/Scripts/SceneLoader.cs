@@ -11,6 +11,7 @@ public class SceneLoader : MonoBehaviour
 
     public void PlayGame()
     {
+        if(LivesCounter.Instance != null) LivesCounter.Instance.SetHealthToTutorialHealth();
         GoToSpecifiedScene(StartingSceneString);
     }
 
