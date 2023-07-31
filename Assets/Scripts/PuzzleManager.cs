@@ -119,8 +119,5 @@ public class PuzzleManager : MonoBehaviour
             sceneLoader.ReplayCurrentScene();
     }
 
-    void OnEnable() => ActionsManager.onPerformAction += CheckIfInPosition;
-    void OnDisable() => ActionsManager.onPerformAction -= CheckIfInPosition;
-
 
 }
