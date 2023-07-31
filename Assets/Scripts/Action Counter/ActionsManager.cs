@@ -39,6 +39,7 @@ public class ActionsManager : MonoBehaviour
     {
         instance = this; 
         actionCounterSO = Resources.Load<ActionCounterSO>("NumberOfActions");
+        LivesCounter.Instance.health = LivesCounter.Instance.maxHealth; 
     }
 
     private void Start()    //This can be removed once there is a Level Start event that InitializeActionCount can be subscribed to.
