@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   speaker: 
-  lines: []
+  lines:
+  - I forgot. My friend wanted to take a picture of me.
   noteType: 1

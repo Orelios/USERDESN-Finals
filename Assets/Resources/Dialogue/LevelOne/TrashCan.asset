@@ -16,3 +16,5 @@ MonoBehaviour:
   speaker: 
   lines:
   - The trashcan is empty.
+  - I'd like to sit inside it, but I'd probably get weird looks.
+  noteType: 0
