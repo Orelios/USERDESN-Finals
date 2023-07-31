@@ -3924,7 +3924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TitleSceneString: TitleScreen
-  StartingSceneString: SampleScene
+  StartingSceneString: Tutorial
   GameOverScreenString: GameOverScreen
 --- !u!4 &761487855
 Transform:
@@ -12052,6 +12052,7 @@ MonoBehaviour:
   isPresist: 1
   health: 3
   maxHealth: 3
+  tutorialHealth: 6
 --- !u!4 &2049252027
 Transform:
   m_ObjectHideFlags: 0
