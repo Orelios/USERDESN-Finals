@@ -14,16 +14,20 @@ public class NotesManager : MonoBehaviour
     [SerializeField] private NotesSavedSO puzzleNotesSaved;
     [Header("UI")]
     [SerializeField] private GameObject notesUI;
-    //[SerializeField] private GameObject hintsUI;
+    [SerializeField] private GameObject hintsUI;
+    [SerializeField] private GameObject puzzleUI;
     [SerializeField] private GameObject noteItemPrefab;
     [SerializeField] private Transform hintNoteItemParent;
     [SerializeField] private Transform puzzleNoteItemParent;
     [SerializeField] private GameObject notesPopUp;
     [SerializeField] private GameObject newNotesNotif;
+    [SerializeField] private GameObject newHintsNotif;
+    [SerializeField] private GameObject newPuzzleNotif;
     public GameObject NotesPopUp { get => notesPopUp; }
     private bool isNotesUIClosing;
     private bool isNotesPopUpClosing;
     private int newNotes;
+    [SerializeField] private bool newHintNotes, newPuzzleNotes;
     private PuzzleManager puzzleManager;
 
     private void Awake()
@@ -64,6 +68,29 @@ public class NotesManager : MonoBehaviour
             newNotes++;
             UpdateNewNotesUI();
         }
+
+        if(dialogueList == hintNotes)
+        {
+            newHintNotes = !hintsUI.activeSelf;
+            newHintsNotif.SetActive(newHintNotes);
+        }
+        else
+        {
+            newPuzzleNotes = !puzzleUI.activeSelf;
+            newPuzzleNotif.SetActive(newPuzzleNotes);
+        }
+    }
+
+    public void DisableHintsNotif()
+    {
+        newHintNotes = false;
+        newHintsNotif.SetActive(false);
+    }
+
+    public void DisablePuzzleNotif()
+    {
+        newPuzzleNotes = false;
+        newPuzzleNotif.SetActive(false);
     }
 
     private void AddNoteUI(Transform noteParent, DialogueSO dialogue)
