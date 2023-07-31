@@ -17,3 +17,5 @@ MonoBehaviour:
   lines:
   - '"Hey, congrats for winning!"'
   - Your friend gives you a smile that doesn't reach their eyes.
+  - '"You did your best."'
+  noteType: 0
