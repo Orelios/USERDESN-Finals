@@ -6,6 +6,9 @@ using TMPro;
 
 public class WordChecker : MonoBehaviour
 {
+    [Header("Screen")]
+    public GameObject textValidationScreen;
+
     [Header("Question")]
     [SerializeField] private string[] question;
     [SerializeField] private TextMeshProUGUI displayQuestions;
@@ -22,19 +25,24 @@ public class WordChecker : MonoBehaviour
     [SerializeField] private string []answer;
     [SerializeField] private TMP_InputField inputField;
 
-    
+    [Header("Display answer")]
+    [SerializeField] private TextMeshProUGUI displayAnswerText; 
+    [SerializeField] private string[] displayAnswer;
 
+    private int questionNumber = 1;
 
-    private int questionNumber = 1; 
-
+    private bool isOpen = true;
     public void Update()
     {
         DisplayQuestion();
+        CloseTab();
     }
     public void InputAsnwer()
     {
-        bool ans; 
-       
+        bool ans;
+        displayAnswer[questionNumber] = inputField.text;
+        DisplayAnswers();
+        Debug.Log(displayAnswer[questionNumber]);
         if (inputField.text == answer[questionNumber])
         {
             Debug.Log("correct");
@@ -75,5 +83,32 @@ public class WordChecker : MonoBehaviour
     public bool CheckAnswer(bool ans)
     {
         return ans; 
+    }
+
+    public void DisplayAnswers()
+    {
+        if(displayAnswer != null)
+        {
+            displayAnswerText.text = displayAnswer[questionNumber - 1] + "Your answer for " + questionNumber + " is " 
+                + displayAnswer[questionNumber] + "\n";
+            displayAnswer[questionNumber] = displayAnswerText.text; 
+        }
+       
+    }
+
+    public void CloseTab()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab) && isOpen == true)
+        {
+            textValidationScreen.SetActive(false);
+            isOpen = false;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Tab) && isOpen == false)
+        {
+            textValidationScreen.SetActive(true);
+            isOpen = true;
+        }
+
     }
 }
