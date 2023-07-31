@@ -30,12 +30,9 @@ public class WordChecker : MonoBehaviour
     [SerializeField] private string[] displayAnswer;
 
     private int questionNumber = 1;
-
-    private bool isOpen = true;
     public void Update()
     {
         DisplayQuestion();
-        CloseTab();
     }
     public void InputAsnwer()
     {
@@ -98,17 +95,6 @@ public class WordChecker : MonoBehaviour
 
     public void CloseTab()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && isOpen == true)
-        {
-            textValidationScreen.SetActive(false);
-            isOpen = false;
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Tab) && isOpen == false)
-        {
-            textValidationScreen.SetActive(true);
-            isOpen = true;
-        }
-
+        textValidationScreen.SetActive(false); 
     }
 }
