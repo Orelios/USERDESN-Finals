@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: Ob_decoration3
@@ -646,6 +650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: Ob_decoration2
@@ -754,6 +762,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 0724afa00fc276243a3530f1472297c2, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Mirror (3)
@@ -1334,6 +1346,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 83ed607472d739b4a990edb5a75d4e7f, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_2ndTrophy
@@ -1682,6 +1698,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217291475}
   m_CullTransparentMesh: 1
+--- !u!1 &240418359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1249562743332229140, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+  m_PrefabInstance: {fileID: 324311504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &243143659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,6 +1885,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 0724afa00fc276243a3530f1472297c2, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Mirror (2)
@@ -1949,6 +1974,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: Confirm_Prof
@@ -2058,13 +2087,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bba77ebc28394ab78ef6ce19cdc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactPrompt: {fileID: 324311508}
-  offset: {x: 0, y: 0, z: 0}
---- !u!1 &324311508 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1249562742520431999, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
-  m_PrefabInstance: {fileID: 324311504}
-  m_PrefabAsset: {fileID: 0}
+  interactPrompt: {fileID: 240418359}
+  offset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &339601894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,6 +2176,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 0724afa00fc276243a3530f1472297c2, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Mirror (1)
@@ -2322,6 +2350,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: Ob_decoration4
@@ -2821,6 +2853,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 788febf4f51f57f4180cec8923599c88, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_1stCanvas
@@ -3374,6 +3410,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 0c4d63383e2e0c94d9d25373e26e9f1f, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Exit
@@ -3934,6 +3974,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 0724afa00fc276243a3530f1472297c2, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Mirror
@@ -4897,6 +4941,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 937225f4317e98746a9b84baee46d425, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Rubrics2
@@ -11021,6 +11069,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: Ob_decoration1
@@ -11328,6 +11380,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 4840556819076283780, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -11557,6 +11613,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 1ec2189312652c54b804f6d20eb087d0, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_FirstPlacer
@@ -11829,6 +11889,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 1ec2189312652c54b804f6d20eb087d0, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_2ndPlacer
@@ -11995,6 +12059,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: a3ee5fda8417cdb4b9cdd3d2428e0b7e, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_TrashCan
@@ -12215,6 +12283,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 1f3d67190253cd348843b412ad2fc8e6, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Friend2
@@ -12317,6 +12389,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 4840556819076283780, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -12399,6 +12475,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 937225f4317e98746a9b84baee46d425, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Rubrics1
@@ -12703,6 +12783,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 0724afa00fc276243a3530f1472297c2, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Mirror (4)
@@ -13369,6 +13453,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 4840556819076283780, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -13451,6 +13539,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: c381e9ba50130da45b596ad5cf07a35a, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_2ndCanvas
@@ -13602,6 +13694,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 5a61c145692433b4093605fea37b14b7, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Friend1
@@ -14339,6 +14435,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 937225f4317e98746a9b84baee46d425, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Rubrics
@@ -16132,6 +16232,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 9b95bc425c77c334c98110349931b450, type: 2}
+    - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 4840556819076283780, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_RootOrder
       value: 50

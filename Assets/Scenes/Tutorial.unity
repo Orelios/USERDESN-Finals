@@ -4464,6 +4464,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 10014b4766c1c5345b320e3fc97214c7, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Sign
@@ -7838,6 +7842,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: ae00e698bc56ac641aafb9ec61e12639, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO_Poster
@@ -9319,7 +9327,7 @@ PrefabInstance:
     - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 591047489}
+      objectReference: {fileID: 709214887}
     - target: {fileID: 4840556818448617044, guid: 52c79753a45543c43a8c5fc9c6feebe0, type: 3}
       propertyPath: m_RenderMode
       value: 1
@@ -11173,6 +11181,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 9bbc982b6774eb240b1385b1ca42d536, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Rubrics3
@@ -11946,6 +11958,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 9bbc982b6774eb240b1385b1ca42d536, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Rubrics1
@@ -12083,6 +12099,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 11400000, guid: 9bbc982b6774eb240b1385b1ca42d536, type: 2}
+    - target: {fileID: 1249562742520432003, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 709214887}
     - target: {fileID: 1249562743500256847, guid: e6102b159c18e9246a38c6f23deb82ed, type: 3}
       propertyPath: m_Name
       value: IO-Ob_Rubrics2
