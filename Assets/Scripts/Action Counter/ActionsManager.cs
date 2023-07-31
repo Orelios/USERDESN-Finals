@@ -41,19 +41,9 @@ public class ActionsManager : MonoBehaviour
     {
         instance = this;
         actionCounterSO = Resources.Load<ActionCounterSO>("NumberOfActions");
-        //LivesCounter.Instance.health = LivesCounter.Instance.maxHealth;
 
         startingCoordinates = LivesCounterDisplay.instance.player.transform.position;
         TutorialCoordinates = new Vector3(-0.5f, -3.5f, 0);
-        if (startingCoordinates == TutorialCoordinates)
-        {
-            LivesCounter.Instance.health = LivesCounter.Instance.tutorialHealth;
-        }
-        else
-        {
-            LivesCounter.Instance.health = LivesCounter.Instance.maxHealth;
-        }
-
     }
 
     private void Start()    //This can be removed once there is a Level Start event that InitializeActionCount can be subscribed to.

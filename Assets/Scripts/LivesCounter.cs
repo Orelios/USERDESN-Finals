@@ -18,4 +18,14 @@ public class LivesCounter : Singleton<LivesCounter>
             FindObjectOfType<SceneLoader>().GameOver();
         }
     }
+
+    public void SetHealthToMaxHealth()
+    {
+        health = maxHealth;
+    }
+
+    public void SetHealthToTutorialHealth()
+    {
+        health = tutorialHealth;
+    }
 }
