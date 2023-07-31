@@ -4612,7 +4612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TitleSceneString: TitleScreen
-  StartingSceneString: SampleScene
+  StartingSceneString: Tutorial
   GameOverScreenString: GameOverScreen
 --- !u!4 &761487855
 Transform:
