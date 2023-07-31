@@ -19,5 +19,5 @@ public class ConfirmObject : InteractableObject
         Invoke("ConfirmAnswer", 0.1f);
     }
 
-    private void ConfirmAnswer() => puzzleManager.CheckIfCorrectAnswer();
+    private void ConfirmAnswer() => puzzleManager.OpenSubmissionPrompt();
 }

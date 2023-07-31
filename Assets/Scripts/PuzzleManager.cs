@@ -25,6 +25,7 @@ public class PuzzleManager : MonoBehaviour
     private NotesManager notesManager;
     private int puzzleHintIndex;
     private DialogueStarter dialogueStarter;
+    private GameObject submissionPrompt;
 
     void Awake()
     {
@@ -32,6 +33,7 @@ public class PuzzleManager : MonoBehaviour
         livesCounter = FindObjectOfType<LivesCounter>();
         notesManager = FindObjectOfType<NotesManager>();
         dialogueStarter = GetComponent<DialogueStarter>();
+        submissionPrompt = FindObjectOfType<SubmissionPrompt>(true).gameObject;
     }
 
     // Start is called before the first frame update
@@ -97,8 +99,13 @@ public class PuzzleManager : MonoBehaviour
         puzzleHintIndex++;
         UIDialogue.onDialogueExtend -= QueueNextPuzzleHint;
         StartDialogue();
-        if(puzzleHintIndex == puzzleHints.Count - 1)
-            puzzleHints.Clear();
+    }
+
+    public void OpenSubmissionPrompt()
+    {
+        puzzleHintIndex = 0;
+        UIDialogue.onFinishedDialogue -= OpenSubmissionPrompt;
+        submissionPrompt.gameObject.SetActive(true);
     }
 
     private void RestartLevel()
