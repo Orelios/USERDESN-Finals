@@ -17,6 +17,7 @@ public class ConfirmObject : InteractableObject
         if(FindObjectOfType<UIDialogue>(true).gameObject.activeSelf) return;
         //base.Interact();
         Invoke("ConfirmAnswer", 0.1f);
+        puzzleManager.CheckIfInPosition();
     }
 
     private void ConfirmAnswer() => puzzleManager.OpenSubmissionPrompt();

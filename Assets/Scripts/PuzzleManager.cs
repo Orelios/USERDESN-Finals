@@ -37,7 +37,7 @@ public class PuzzleManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    private void CheckIfInPosition()
+    public void CheckIfInPosition()
     {
         foreach(PuzzleObject puzzleObject in puzzleObjects)
         {
@@ -51,7 +51,7 @@ public class PuzzleManager : MonoBehaviour
     public void CheckIfCorrectAnswer()
     {
         bool isCorrectAnswer = true;
-        
+
         foreach(PuzzleObject puzzleObject in puzzleObjects)
         {
             if(!puzzleObject.IsInPosition) isCorrectAnswer = false;
@@ -75,7 +75,7 @@ public class PuzzleManager : MonoBehaviour
             }
             StartDialogue();
 
-            
+
         }
     }
 
@@ -118,9 +118,6 @@ public class PuzzleManager : MonoBehaviour
         if(livesCounter.health != 0)
             sceneLoader.ReplayCurrentScene();
     }
-
-    void OnEnable() => ActionsManager.onPerformAction += CheckIfInPosition;
-    void OnDisable() => ActionsManager.onPerformAction -= CheckIfInPosition;
 
 
 }

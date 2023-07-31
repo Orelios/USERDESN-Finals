@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5269f971b89f6a24d93a9fe458a3cd2a, type: 3}
-  m_Name: TrashCan
+  m_Name: 2ndTrophy
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   speaker: 
   lines:
-  - The trashcan is empty.
-  - I'd like to sit inside it, but I'd probably get weird looks.
+  - A silver trophy. It's alright.
   noteType: 0
