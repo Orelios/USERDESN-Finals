@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5269f971b89f6a24d93a9fe458a3cd2a, type: 3}
-  m_Name: Desk
+  m_Name: DeskLeft
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   speaker: 
   lines:
-  - The top of the desk is empty.
+  - Unconsciously, I reach for my tools, but the top of the desk is empty.
   - I must have forgotten to put my supplies back here.
+  noteType: 0
