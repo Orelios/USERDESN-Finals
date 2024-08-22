@@ -1,7 +1,3 @@
 # USERDESN-Finals
 
-reminder to add den noise audio into game tenq
-de wala but kuya cael is cute
-
-.TEST
-.test2.0
+A 2D puzzle game created using Unity, made for iACADEMY USERDESN Finals 3rd Term SY '22-23
